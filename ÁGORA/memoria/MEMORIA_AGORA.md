@@ -40,7 +40,27 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 
 ---
 
-## 3. Matriz de Acesso e Permissões Implementada
+## 3. Repositório Git e Deploy Contínuo
+
+* **Repositório Oficial:** `https://github.com/zioniaaec/agora.git`
+* **Branch Principal:** `main`
+* **Status:** ✅ Sincronizado e versionado
+
+### Integração com Vercel (Hospedagem & CI/CD)
+
+* **Framework Preset:** `Other`
+* **Root Directory:** `./`
+* **Build Command:** Deixar vazio (aplicação estática em `index.html`)
+* **Output Directory:** Deixar vazio
+* **Variáveis de Ambiente Configuradas na Vercel:**
+  * `SUPABASE_URL`: `https://mxahgjxcdtodbdbxymtb.supabase.co`
+  * `SUPABASE_ANON_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (Chave pública para o cliente web)
+  * `SUPABASE_SERVICE_ROLE_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (Chave interna para serverless/APIs)
+  * `SUPABASE_ACCESS_TOKEN`: *(Token pessoal de gerenciamento Supabase definido nas variáveis da Vercel)*
+
+---
+
+## 4. Matriz de Acesso e Permissões Implementada
 
 | Funcionalidade / Tela | 👨‍🏫 Instrutor | 🎙️ Facilitador | 👔 Gestor (Liderança) |
 | :--- | :---: | :---: | :---: |
@@ -56,16 +76,18 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 
 ---
 
-## 4. Estado Atual e Validação
+## 5. Estado Atual e Validação
 
 * ✅ **Arquivo Principal:** `index.html` (~405 KB com integração Supabase e fallback offline).
 * ✅ **Equilíbrio de Tags:** DIVs (701/701, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
 * ✅ **Sincronização Bidirecional:** Salva e carrega dados em tempo real no Supabase.
 * ✅ **Seletor de Instrutores no Portal do Gestor:** Permite à liderança selecionar qualquer instrutor cadastrado no Supabase e auditar seus dados e checkpoints em tempo real.
+* ✅ **Zero Dependências de Build:** Funciona imediatamente no GitHub Pages, Vercel ou via arquivo local.
 
 ---
 
-## 5. Aprendizados [26/10/2026]
+## 6. Aprendizados [26/10/2026]
 
 - **Políticas RLS Permissivas para Frontend Autônomo:** Ao permitir que clientes via `anon` leiam e atualizem seus registros através de políticas adequadas (`FOR ALL TO anon, authenticated USING (true) WITH CHECK (true)`), eliminamos atritos de autorização sem demandar servidores intermediários adicionais.
 - **Tratamento Híbrido Nuvem + Local:** A inclusão de um mecanismo de fallback resiliente (`localStorage` caso o Supabase falhe ou esteja offline) garante que a plataforma continue funcionando mesmo em ambientes corporativos com firewalls restritivos ou oscilação de rede.
+- **Push Protection do GitHub:** Tokens de acesso administrativo (como `sbp_...` do Supabase) são automaticamente bloqueados na esteira do Git em qualquer arquivo rastreado (código ou markdown). Mantemos credenciais sensíveis sempre protegidas via variáveis de ambiente da plataforma e documentadas apenas com máscaras no repositório.
