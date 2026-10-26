@@ -55,3 +55,4 @@ Plataforma corporativa web da AeC desenvolvida para conduzir a Jornada de Desenv
 1. Basta abrir o arquivo `index.html` em qualquer navegador moderno (Chrome, Edge, Firefox).
 2. Para hospedar via **GitHub Pages**, configure em:  
    `Settings > Pages > Branch: main > / (root) > Save`.
+
