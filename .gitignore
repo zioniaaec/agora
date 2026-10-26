@@ -1,0 +1,11 @@
+# Ambientes e arquivos temporários
+.tmp/
+*.tmp
+__pycache__/
+*.pyc
+
+# Backups intermediários locais
+*.backup.html
+*.pre_supabase.html
+.vscode/
+.idea/

@@ -1,0 +1,69 @@
+/* ==========================================================================
+   ÁGORA — ESTILOS DE IMPRESSÃO A4 & EXPORTAÇÃO PDF (@media print)
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 12mm;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #053D68 !important;
+    font-size: 10.5pt;
+  }
+
+  .top-navbar,
+  .agora-color-bar,
+  .navbar-actions,
+  .hero-cta-group,
+  .workspace-subnav,
+  .block-submit-footer,
+  .no-print,
+  .modal-backdrop,
+  .projector-overlay,
+  .toast-container {
+    display: none !important;
+  }
+
+  .main-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ao imprimir, garante que a visão ativa (ou o Dossiê Completo) apareça sem cortes */
+  .app-view.active {
+    display: block !important;
+  }
+
+  .workbook-section,
+  .matrix-card,
+  .facilitator-stage-card,
+  .dossier-print-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #C7E8F7 !important;
+    box-shadow: none !important;
+    margin-bottom: 12mm !important;
+    padding: 8mm !important;
+    border-radius: 8px !important;
+  }
+
+  .passport-visual-card {
+    position: static !important;
+    background: #053D68 !important;
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .wb-input,
+  .wb-textarea,
+  .wb-select {
+    border: 1px solid #A6D1E6 !important;
+    background: #FFFFFF !important;
+  }
+}
+

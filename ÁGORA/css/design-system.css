@@ -1,0 +1,566 @@
+/* ==========================================================================
+   ÁGORA — DESIGN SYSTEM OFICIAL (BRAND KIT 2026)
+   Essência: "A Ágora é o espaço onde a troca vira aprendizado — e o aprendizado gera transformação."
+   Assinatura: DIÁLOGO QUE TRANSFORMA | TROCA • APRENDIZADO • EVOLUÇÃO
+   ========================================================================== */
+
+:root {
+  /* Paleta Digital Oficial — Brand Kit Ágora (Pág. 04) */
+  --agora-blue: #12639A;          /* RGB 18, 99, 154 — Cor dominante (títulos, logo, textos institucionais) */
+  --agora-deep: #053D68;          /* RGB 5, 61, 104 — Azul profundo (contraste e fundos escuros premium) */
+  --agora-turquoise: #08B7BC;     /* RGB 8, 183, 188 — Turquesa (símbolo, separadores, links e chamadas) */
+  --agora-mid: #258FC0;           /* RGB 37, 143, 192 — Azul médio (apoio, hover e gradientes) */
+  --agora-light: #C7E8F7;         /* RGB 199, 232, 247 — Azul claro (fundos leves e acolhimento) */
+  --agora-white: #FFFFFF;         /* RGB 255, 255, 255 — Branco puro */
+
+  /* Tons Derivados de Superfície e UI */
+  --agora-ice: #F2F9FC;
+  --agora-ice-alt: #E6F4FA;
+  --agora-border: #D2E8F3;
+  --agora-border-strong: #A6D1E6;
+  --agora-text: #1B364D;
+  --agora-text-muted: #527089;
+  --agora-text-light: #7C99B0;
+
+  /* Cores Funcionais e Perfil DISC */
+  --disc-d: #E53935;              /* Dominância — Foco em resultados */
+  --disc-d-bg: #FFEBEE;
+  --disc-i: #F59E0B;              /* Influência — Foco em pessoas */
+  --disc-i-bg: #FEF3C7;
+  --disc-s: #10B981;              /* Estabilidade — Foco em relacionamentos */
+  --disc-s-bg: #D1FAE5;
+  --disc-c: #1E88E5;              /* Conformidade — Foco em processos */
+  --disc-c-bg: #E3F2FD;
+
+  /* Estados do Sistema e Cadeados */
+  --status-unlocked: #08B7BC;
+  --status-completed: #10B981;
+  --status-locked: #64748B;
+  --status-warning: #F59E0B;
+  --status-danger: #EF4444;
+
+  /* Tipografia Oficial — Brand Kit (Pág. 05) */
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Caveat', 'Dancing Script', cursive;
+
+  /* Sombras e Elevações */
+  --shadow-xs: 0 2px 6px rgba(5, 61, 104, 0.05);
+  --shadow-sm: 0 4px 14px rgba(5, 61, 104, 0.07);
+  --shadow-md: 0 10px 30px rgba(5, 61, 104, 0.10);
+  --shadow-lg: 0 20px 50px rgba(5, 61, 104, 0.16);
+  --shadow-glow: 0 8px 25px rgba(8, 183, 188, 0.28);
+
+  /* Raios de Borda */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transições */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modo Escuro / Alto Contraste (Inspirado na Contracapa em Azul Profundo #053D68) */
+body.theme-dark {
+  --agora-ice: #032541;
+  --agora-ice-alt: #053154;
+  --agora-white: #073B65;
+  --agora-border: #125282;
+  --agora-border-strong: #1F6FA8;
+  --agora-text: #F0F8FF;
+  --agora-text-muted: #B0D4EC;
+  --agora-text-light: #7FAED0;
+  --agora-blue: #4BB3FD;
+  --agora-deep: #FFFFFF;
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--agora-text);
+  background-color: var(--agora-ice);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--agora-deep);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--agora-turquoise);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--agora-blue);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ==========================================================================
+   GRAFISMOS OFICIAIS (CÍRCULOS, ONDAS E SOBREPOSIÇÕES — PÁG. 06 BRAND KIT)
+   ========================================================================== */
+.agora-color-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 6px;
+  width: 100%;
+}
+.agora-color-bar span:nth-child(1) { background: #053D68; }
+.agora-color-bar span:nth-child(2) { background: #12639A; }
+.agora-color-bar span:nth-child(3) { background: #258FC0; }
+.agora-color-bar span:nth-child(4) { background: #08B7BC; }
+.agora-color-bar span:nth-child(5) { background: #C7E8F7; }
+
+.agora-signature-track {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--agora-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.agora-signature-track .dot {
+  color: var(--agora-turquoise);
+  font-size: 0.9rem;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--agora-turquoise);
+  background: rgba(8, 183, 188, 0.1);
+  border: 1px solid rgba(8, 183, 188, 0.25);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+}
+
+.turquoise-rule {
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--agora-turquoise), var(--agora-mid));
+  border-radius: 2px;
+  margin: 0.75rem 0 1.25rem;
+}
+
+/* ==========================================================================
+   HEADER & NAVEGAÇÃO PRINCIPAL
+   ========================================================================== */
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--agora-border);
+  box-shadow: var(--shadow-xs);
+  transition: background var(--transition-normal);
+}
+
+body.theme-dark .top-navbar {
+  background: rgba(5, 61, 104, 0.94);
+}
+
+.navbar-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0.65rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: pointer;
+}
+
+.brand-logo-svg {
+  height: 44px;
+  width: auto;
+}
+
+.brand-Edition-badge {
+  border-left: 2px solid var(--agora-border-strong);
+  padding-left: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--agora-text-muted);
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--agora-ice);
+  padding: 0.3rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--agora-border);
+}
+
+.nav-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--agora-text-muted);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-tab-btn:hover {
+  color: var(--agora-deep);
+  background: rgba(18, 99, 154, 0.06);
+}
+
+.nav-tab-btn.active {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-xs);
+}
+
+.nav-tab-btn .badge-pill {
+  font-size: 0.68rem;
+  padding: 0.1rem 0.48rem;
+  border-radius: var(--radius-pill);
+  background: var(--agora-turquoise);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Status Global do Ciclo na Navbar */
+.cycle-progress-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--agora-ice-alt);
+  border: 1px solid var(--agora-border-strong);
+  padding: 0.38rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--agora-deep);
+}
+
+.cycle-mini-bar {
+  width: 64px;
+  height: 7px;
+  background: rgba(18, 99, 154, 0.15);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.cycle-mini-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--agora-blue), var(--agora-turquoise));
+  border-radius: var(--radius-pill);
+  transition: width 0.4s ease;
+}
+
+/* ==========================================================================
+   BOTÕES DO SISTEMA
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.68rem 1.35rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.86rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--agora-blue), var(--agora-deep));
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--agora-mid), var(--agora-blue));
+}
+
+.btn-turquoise {
+  background: linear-gradient(135deg, var(--agora-turquoise), #069498);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-turquoise:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.btn-outline {
+  background: var(--agora-white);
+  color: var(--agora-blue);
+  border-color: var(--agora-border-strong);
+}
+
+.btn-outline:hover {
+  background: var(--agora-ice-alt);
+  border-color: var(--agora-blue);
+}
+
+.btn-sm {
+  padding: 0.42rem 0.85rem;
+  font-size: 0.76rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 0.95rem 1.85rem;
+  font-size: 0.98rem;
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & VIEWS
+   ========================================================================== */
+.main-container {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.app-view {
+  display: none;
+  animation: fadeInView 0.35s ease forwards;
+}
+
+.app-view.active {
+  display: block;
+}
+
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   HERO BANNER (CAPA REVISTA + DIÁLOGO QUE TRANSFORMA)
+   ========================================================================== */
+.hero-banner {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #FFFFFF 0%, #EAF6FB 55%, #C7E8F7 100%);
+  border: 1px solid var(--agora-border-strong);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  padding: 3.2rem 3.5rem;
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+body.theme-dark .hero-banner {
+  background: linear-gradient(135deg, #053D68 0%, #094E82 60%, #0D649E 100%);
+}
+
+.hero-wave-bg {
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8, 183, 188, 0.16) 0%, rgba(18, 99, 154, 0.05) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.35rem);
+  font-weight: 800;
+  color: var(--agora-deep);
+  margin: 0.6rem 0 1rem;
+  line-height: 1.1;
+}
+
+.hero-title .highlight-turquoise {
+  color: var(--agora-turquoise);
+  display: block;
+}
+
+.hero-lead {
+  font-size: 1.08rem;
+  color: var(--agora-text-muted);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-quote-box {
+  background: rgba(255, 255, 255, 0.82);
+  border-left: 4px solid var(--agora-turquoise);
+  padding: 0.9rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 1.75rem;
+  font-size: 0.94rem;
+  color: var(--agora-deep);
+  font-weight: 500;
+  box-shadow: var(--shadow-xs);
+}
+
+body.theme-dark .hero-quote-box {
+  background: rgba(3, 37, 65, 0.65);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.hero-illustration-col {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-circle-art {
+  width: 100%;
+  max-width: 390px;
+  filter: drop-shadow(0 18px 35px rgba(5, 61, 104, 0.14));
+  transition: transform var(--transition-normal);
+}
+
+.hero-circle-art:hover {
+  transform: scale(1.02) rotate(1.5deg);
+}
+
+/* ==========================================================================
+   RODAPÉ OFICIAL ÁGORA
+   ========================================================================== */
+.agora-footer {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+  padding: 2.5rem 1.5rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--agora-turquoise);
+}
+
+.footer-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  color: var(--agora-light);
+}
+
+/* Responsividade Global */
+@media (max-width: 1024px) {
+  .hero-banner {
+    grid-template-columns: 1fr;
+    padding: 2.2rem 1.8rem;
+  }
+  .hero-illustration-col {
+    order: -1;
+  }
+  .hero-circle-art {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nav-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .navbar-actions {
+    justify-content: space-between;
+  }
+}
+

@@ -1,0 +1,1373 @@
+/* ==========================================================================
+   ÁGORA — COMPONENTES INTERATIVOS, CADEADOS, FORMS E WORKBOOK
+   ========================================================================== */
+
+/* 1. CARDS DE PILARES ("AQUI VOCÊ VAI ENCONTRAR") */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.pillar-card {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--agora-turquoise);
+  box-shadow: var(--shadow-md);
+}
+
+.pillar-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--agora-light), #E4F5FC);
+  color: var(--agora-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  border: 1px solid rgba(18, 99, 154, 0.18);
+}
+
+.pillar-text {
+  font-size: 0.9rem;
+  color: var(--agora-text);
+  line-height: 1.45;
+}
+
+.pillar-text strong {
+  color: var(--agora-deep);
+  display: block;
+  margin-top: 0.1rem;
+}
+
+/* 2. CONVITE ESPECIAL INTERATIVO (ENVELOPE + SELO DE CERA — Convite_AGORA 1.pdf) */
+.invite-showcase {
+  background: linear-gradient(160deg, #053D68 0%, #094D80 55%, #12639A 100%);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2.75rem;
+  border: 1px solid rgba(199, 232, 247, 0.25);
+}
+
+.invite-card-inner {
+  background: #FFFFFF;
+  color: var(--agora-text);
+  border-radius: var(--radius-lg);
+  padding: 2.4rem 2.6rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 18px 40px rgba(3, 25, 44, 0.32);
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+body.theme-dark .invite-card-inner {
+  background: #062F52;
+  color: #F0F8FF;
+}
+
+.invite-headline {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--agora-blue);
+  line-height: 1.12;
+  margin: 0.5rem 0 1rem;
+}
+
+.invite-headline span {
+  color: var(--agora-turquoise);
+  display: block;
+}
+
+.invite-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1.35rem;
+}
+
+.invite-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-right: 1px solid var(--agora-border);
+  padding-right: 0.75rem;
+}
+
+.invite-meta-item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.invite-meta-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--agora-light);
+  color: var(--agora-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.invite-meta-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--agora-text-muted);
+}
+
+.invite-meta-input {
+  border: none;
+  border-bottom: 1px dashed var(--agora-border-strong);
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--agora-deep);
+  width: 100%;
+  padding: 0.15rem 0;
+}
+
+.invite-meta-input:focus {
+  outline: none;
+  border-bottom-color: var(--agora-turquoise);
+}
+
+.wax-seal-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wax-seal-btn {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #1B6CA8, #053D68 70%, #02223C 100%);
+  border: 4px solid #258FC0;
+  box-shadow:
+    0 12px 28px rgba(5, 61, 104, 0.45),
+    inset 0 3px 8px rgba(255, 255, 255, 0.35),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-bounce), box-shadow var(--transition-normal);
+  position: relative;
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.07) rotate(-3deg);
+  box-shadow: 0 16px 36px rgba(8, 183, 188, 0.45), inset 0 3px 8px rgba(255, 255, 255, 0.45);
+}
+
+.script-signature {
+  font-family: var(--font-script);
+  font-size: 1.65rem;
+  color: var(--agora-deep);
+  margin-top: 1rem;
+  line-height: 1.15;
+  transform: rotate(-4deg);
+}
+
+/* 3. TABELA MATRIZ OFICIAL DOS 5 EIXOS E 3 BLOCOS */
+.matrix-card {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2.75rem;
+}
+
+.matrix-table-wrap {
+  overflow-x: auto;
+  margin-top: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--agora-border);
+}
+
+.agora-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.agora-matrix-table thead th {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1rem 1.15rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.agora-matrix-table tbody tr {
+  border-bottom: 1px solid var(--agora-border);
+  transition: background var(--transition-fast);
+}
+
+.agora-matrix-table tbody tr:nth-child(even) {
+  background: var(--agora-ice);
+}
+
+.agora-matrix-table tbody tr:hover {
+  background: rgba(8, 183, 188, 0.07);
+}
+
+.agora-matrix-table td {
+  padding: 1rem 1.15rem;
+  vertical-align: middle;
+  border-right: 1px solid var(--agora-border);
+}
+
+.agora-matrix-table td:last-child {
+  border-right: none;
+}
+
+.matrix-block-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.badge-b1 { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+.badge-b2 { background: #CCFBF1; color: #0F766E; border: 1px solid #99F6E4; }
+.badge-b3 { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+
+/* 4. TRILHA DO CICLO DE 3 MESES (3 BLOCOS COM CADEADO QUE VÃO DESTRAVANDO) */
+.cycle-header-banner {
+  background: linear-gradient(135deg, var(--agora-deep) 0%, var(--agora-blue) 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.cycle-header-banner h2 {
+  color: #FFFFFF;
+  font-size: 1.65rem;
+  margin-bottom: 0.3rem;
+}
+
+.cycle-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+}
+
+.cycle-tag {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 0.32rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Grid dos 3 Blocos com Cadeado */
+.blocks-trail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.block-padlock-card {
+  background: var(--agora-white);
+  border: 2px solid var(--agora-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  position: relative;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.block-padlock-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--status-locked);
+  transition: background var(--transition-normal);
+}
+
+.block-padlock-card.unlocked {
+  border-color: var(--agora-turquoise);
+  box-shadow: var(--shadow-md);
+}
+
+.block-padlock-card.unlocked::before {
+  background: linear-gradient(90deg, var(--agora-blue), var(--agora-turquoise));
+}
+
+.block-padlock-card.completed {
+  border-color: var(--status-completed);
+}
+
+.block-padlock-card.completed::before {
+  background: var(--status-completed);
+}
+
+.block-padlock-card.active-selected {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 38px rgba(8, 183, 188, 0.22);
+  outline: 3px solid rgba(8, 183, 188, 0.35);
+}
+
+.block-padlock-card.locked {
+  background: linear-gradient(180deg, var(--agora-white) 0%, #F1F5F9 100%);
+  opacity: 0.88;
+}
+
+.block-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.month-pill {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--agora-ice-alt);
+  color: var(--agora-blue);
+  border: 1px solid var(--agora-border-strong);
+}
+
+.padlock-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all var(--transition-bounce);
+}
+
+.block-padlock-card.unlocked .padlock-icon-badge {
+  background: rgba(8, 183, 188, 0.14);
+  color: var(--agora-turquoise);
+  border: 2px solid var(--agora-turquoise);
+}
+
+.block-padlock-card.completed .padlock-icon-badge {
+  background: #D1FAE5;
+  color: #059669;
+  border: 2px solid #10B981;
+}
+
+.block-padlock-card.locked .padlock-icon-badge {
+  background: #E2E8F0;
+  color: #475569;
+  border: 2px dashed #94A3B8;
+}
+
+.block-card-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--agora-deep);
+  margin-bottom: 0.45rem;
+}
+
+.block-card-desc {
+  font-size: 0.87rem;
+  color: var(--agora-text-muted);
+  margin-bottom: 1rem;
+}
+
+.block-axes-list {
+  list-style: none;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.block-axes-list li {
+  font-size: 0.81rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--agora-text);
+  background: var(--agora-ice);
+  padding: 0.38rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--agora-border);
+}
+
+.block-progress-area {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--agora-border);
+}
+
+.block-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--agora-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.block-progress-track {
+  width: 100%;
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.block-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--agora-blue), var(--agora-turquoise));
+  border-radius: var(--radius-pill);
+  transition: width 0.35s ease;
+}
+
+.block-padlock-card.completed .block-progress-fill {
+  background: var(--status-completed);
+}
+
+/* 5. CONTAINER DO FORMS DE CADA BLOCO (WORKBOOK DIGITAL INTEGRADO) */
+.block-form-workspace {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.workspace-header {
+  background: linear-gradient(135deg, #053D68 0%, #12639A 100%);
+  color: #FFFFFF;
+  padding: 1.85rem 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  border-bottom: 4px solid var(--agora-turquoise);
+}
+
+.workspace-header h3 {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.workspace-subnav {
+  background: var(--agora-ice);
+  padding: 0.85rem 2.4rem;
+  border-bottom: 1px solid var(--agora-border);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  overflow-x: auto;
+}
+
+.subnav-step-btn {
+  padding: 0.48rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--agora-border-strong);
+  background: var(--agora-white);
+  color: var(--agora-text-muted);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.subnav-step-btn:hover {
+  border-color: var(--agora-turquoise);
+  color: var(--agora-deep);
+}
+
+.subnav-step-btn.active {
+  background: var(--agora-turquoise);
+  border-color: var(--agora-turquoise);
+  color: #FFFFFF;
+}
+
+.workspace-body {
+  padding: 2.4rem;
+}
+
+.workbook-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 2px dashed var(--agora-border);
+}
+
+.workbook-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+}
+
+.wb-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.wb-page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--agora-blue);
+  background: var(--agora-light);
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.45rem;
+}
+
+.wb-page-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--agora-deep);
+}
+
+.wb-page-subtitle {
+  font-size: 0.96rem;
+  color: var(--agora-text-muted);
+  margin-top: 0.25rem;
+  max-width: 760px;
+}
+
+.contributor-callout {
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border-strong);
+  border-left: 4px solid var(--agora-blue);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.1rem;
+  font-size: 0.82rem;
+  max-width: 340px;
+}
+
+.contributor-callout strong {
+  display: block;
+  color: var(--agora-deep);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+/* 6. ELEMENTOS DE FORMULÁRIO ESTILO WORKBOOK ÁGORA */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.wb-field-card {
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.wb-field-card:focus-within {
+  background: var(--agora-white);
+  border-color: var(--agora-turquoise);
+  box-shadow: 0 6px 20px rgba(8, 183, 188, 0.12);
+}
+
+.wb-field-card.highlight-card {
+  background: linear-gradient(135deg, #EAF6FB 0%, #D8EFFA 100%);
+  border-color: var(--agora-mid);
+}
+
+body.theme-dark .wb-field-card.highlight-card {
+  background: linear-gradient(135deg, #06355A 0%, #094879 100%);
+}
+
+.wb-field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.93rem;
+  color: var(--agora-deep);
+  margin-bottom: 0.55rem;
+}
+
+.wb-field-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--agora-blue);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.wb-field-hint {
+  font-size: 0.8rem;
+  color: var(--agora-text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.wb-input,
+.wb-textarea,
+.wb-select {
+  width: 100%;
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--agora-white);
+  color: var(--agora-text);
+  padding: 0.72rem 0.95rem;
+  font-size: 0.92rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.wb-textarea {
+  resize: vertical;
+  min-height: 86px;
+  line-height: 1.55;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(18, 99, 154, 0.08) 27px,
+    rgba(18, 99, 154, 0.08) 28px
+  );
+}
+
+.wb-input:focus,
+.wb-textarea:focus,
+.wb-select:focus {
+  outline: none;
+  border-color: var(--agora-turquoise);
+  box-shadow: 0 0 0 3px rgba(8, 183, 188, 0.16);
+}
+
+/* 7. PASSAPORTE PROFISSIONAL ÁGORA (PREVIEW EM TEMPO REAL + TAGS DE INTERESSES) */
+.passport-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.passport-visual-card {
+  background: linear-gradient(150deg, #053D68 0%, #0A4F85 60%, #12639A 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid rgba(199, 232, 247, 0.3);
+  position: sticky;
+  top: 90px;
+}
+
+.passport-stamp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(199, 232, 247, 0.35);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.passport-stamp-badge {
+  border: 2px solid var(--agora-turquoise);
+  color: var(--agora-turquoise);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+
+.passport-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.passport-avatar-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--agora-turquoise), var(--agora-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+}
+
+.passport-kv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  background: rgba(3, 28, 48, 0.42);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.passport-kv-item small {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--agora-light);
+}
+
+.passport-kv-item strong {
+  font-size: 0.88rem;
+  color: #FFFFFF;
+}
+
+/* Tags de Mapa de Interesses */
+.interest-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.interest-chip {
+  padding: 0.42rem 0.88rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--agora-border-strong);
+  background: var(--agora-white);
+  color: var(--agora-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.interest-chip:hover {
+  border-color: var(--agora-turquoise);
+}
+
+.interest-chip.selected {
+  background: var(--agora-turquoise);
+  border-color: var(--agora-turquoise);
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(8, 183, 188, 0.25);
+}
+
+/* 8. ALEGORIA DA CAVERNA (PLATÃO) & RESSIGNIFICADOR */
+.cave-allegory-banner {
+  background: linear-gradient(135deg, #053D68 0%, #0D4F82 65%, #166B9E 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.85rem 2rem;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.cave-allegory-banner p {
+  font-size: 0.94rem;
+  color: #E6F4FA;
+  margin-bottom: 0.7rem;
+}
+
+.resignifier-box {
+  background: linear-gradient(90deg, #FFF8E7 0%, #E6F9FA 100%);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  margin-bottom: 1.35rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+body.theme-dark .resignifier-box {
+  background: #063358;
+}
+
+/* 9. PERFIL COMPORTAMENTAL DISC (BADGES + QUIZ INTERATIVO + QR CODE) */
+.disc-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.disc-card {
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.disc-card.disc-d { background: var(--disc-d-bg); border-color: rgba(229, 57, 53, 0.35); color: #8E1B18; }
+.disc-card.disc-i { background: var(--disc-i-bg); border-color: rgba(245, 158, 11, 0.35); color: #8C5804; }
+.disc-card.disc-s { background: var(--disc-s-bg); border-color: rgba(16, 185, 129, 0.35); color: #065F46; }
+.disc-card.disc-c { background: var(--disc-c-bg); border-color: rgba(30, 136, 229, 0.35); color: #0D47A1; }
+
+.disc-card.selected-profile {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  outline: 3px solid var(--agora-deep);
+}
+
+.disc-letter {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+
+.disc-d .disc-letter { background: var(--disc-d); }
+.disc-i .disc-letter { background: var(--disc-i); }
+.disc-s .disc-letter { background: var(--disc-s); }
+.disc-c .disc-letter { background: var(--disc-c); }
+
+.disc-qr-and-quiz-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qr-code-box {
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.qr-svg-frame {
+  width: 118px;
+  height: 118px;
+  background: #FFFFFF;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--agora-deep);
+  flex-shrink: 0;
+}
+
+/* 10. RAIO-X DE COMPETÊNCIAS (HARD & SOFT SKILLS + ESCALA 1 A 4 + RADAR) */
+.raiox-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.75rem;
+  align-items: start;
+  margin-bottom: 1.75rem;
+}
+
+.skills-column-card {
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--agora-text);
+}
+
+.rating-group-1to4 {
+  display: flex;
+  gap: 0.32rem;
+}
+
+.rate-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--agora-border-strong);
+  background: var(--agora-ice);
+  color: var(--agora-text-muted);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.rate-btn:hover {
+  border-color: var(--agora-blue);
+  color: var(--agora-deep);
+}
+
+.rate-btn.active-1 { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
+.rate-btn.active-2 { background: #FEF3C7; border-color: #F59E0B; color: #92400E; }
+.rate-btn.active-3 { background: #E0F2FE; border-color: #0284C7; color: #075985; }
+.rate-btn.active-4 { background: var(--agora-turquoise); border-color: var(--agora-turquoise); color: #FFFFFF; }
+
+.radar-chart-panel {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  text-align: center;
+  position: sticky;
+  top: 90px;
+  box-shadow: var(--shadow-xs);
+}
+
+/* 11. NETWORKING, PRESENÇA (1 A 5) & CHECKLIST LINKEDIN (PÁG. 9) */
+.presence-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.68rem 0.9rem;
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+}
+
+.linkedin-checklist-box {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+}
+
+.check-item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.52rem 0.65rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: background var(--transition-fast);
+}
+
+.check-item-row:hover {
+  background: var(--agora-ice);
+}
+
+.check-item-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--agora-turquoise);
+  cursor: pointer;
+}
+
+/* 12. PDI ÁGORA — ESCADA DE EVOLUÇÃO & SMART (PÁGS. 10 E 11) */
+.pdi-staircase-banner {
+  background: linear-gradient(135deg, #053D68 0%, #12639A 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.65rem 2rem;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.staircase-steps {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.stair-step {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(199, 232, 247, 0.35);
+  border-top: 4px solid var(--agora-turquoise);
+  border-radius: 8px 8px 0 0;
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.stair-step:nth-child(1) { height: 64px; }
+.stair-step:nth-child(2) { height: 88px; }
+.stair-step:nth-child(3) { height: 112px; }
+.stair-step:nth-child(4) { height: 138px; background: rgba(8, 183, 188, 0.28); }
+
+.smart-pills-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.smart-pill {
+  background: var(--agora-ice);
+  border: 1px solid var(--agora-border-strong);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.smart-pill strong {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--agora-blue);
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.smart-pill span {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--agora-text);
+}
+
+/* 13. CARTA PARA O MEU EU DO FUTURO (ENVELOPE PÁG. 12) */
+.future-letter-envelope {
+  background: linear-gradient(180deg, #FFFDF9 0%, #F4FAFD 100%);
+  border: 2px solid var(--agora-border-strong);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+body.theme-dark .future-letter-envelope {
+  background: linear-gradient(180deg, #062F52 0%, #04223C 100%);
+}
+
+.envelope-flap-header {
+  text-align: center;
+  border-bottom: 2px dashed var(--agora-border-strong);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+/* 14. BARRA DE SUBMISSÃO & DESTRAVAMENTO DO BLOCO */
+.block-submit-footer {
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 2px solid var(--agora-turquoise);
+  border-radius: var(--radius-xl);
+  padding: 1.65rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+body.theme-dark .block-submit-footer {
+  background: #06385E;
+}
+
+/* 15. COCKPIT DO FACILITADOR & CRONÔMETRO DE 5 HORAS */
+.facilitator-top-bar {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.timer-display-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(8, 183, 188, 0.5);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.timer-digits {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--agora-turquoise);
+  letter-spacing: 0.04em;
+  min-width: 110px;
+}
+
+.cycle-4steps-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cycle-step-pill {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border-strong);
+  border-left: 4px solid var(--agora-turquoise);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+}
+
+.facilitator-stage-card {
+  background: var(--agora-white);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.teleprompter-speech {
+  background: linear-gradient(90deg, rgba(8, 183, 188, 0.1), rgba(18, 99, 154, 0.05));
+  border-left: 4px solid var(--agora-turquoise);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  color: var(--agora-deep);
+  margin: 0.85rem 0;
+}
+
+/* 16. MODAIS (CADEADO & MODO PROJEÇÃO EM SALA) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 27, 48, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--agora-white);
+  border-radius: var(--radius-xl);
+  max-width: 540px;
+  width: 100%;
+  padding: 2.2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--agora-border-strong);
+  position: relative;
+  animation: fadeInView 0.25s ease;
+}
+
+/* Projector Fullscreen Overlay */
+.projector-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #032541 0%, #053D68 55%, #0B558A 100%);
+  color: #FFFFFF;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 4rem;
+}
+
+.projector-overlay.open {
+  display: flex;
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 3500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.agora-toast {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+  border-left: 5px solid var(--agora-turquoise);
+  padding: 0.95rem 1.35rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeInView 0.25s ease;
+}
+
+/* Responsividade dos Componentes */
+@media (max-width: 1024px) {
+  .blocks-trail-grid,
+  .passport-layout,
+  .raiox-layout,
+  .disc-qr-and-quiz-row,
+  .invite-card-inner,
+  .cave-allegory-banner,
+  .pdi-staircase-banner {
+    grid-template-columns: 1fr;
+  }
+  .passport-visual-card,
+  .radar-chart-panel {
+    position: static;
+  }
+  .disc-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .smart-pills-row,
+  .cycle-4steps-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .form-grid-2,
+  .form-grid-3,
+  .disc-badges-grid,
+  .smart-pills-row,
+  .cycle-4steps-strip,
+  .invite-meta-bar,
+  .resignifier-box {
+    grid-template-columns: 1fr;
+  }
+  .workspace-body {
+    padding: 1.35rem;
+  }
+}
+
