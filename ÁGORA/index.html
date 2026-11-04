@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   
   
@@ -2425,6 +2426,90 @@ body.theme-dark .gestor-card-section {
   border-color: var(--agora-border) !important;
 }
 
+
+/* ==========================================================================
+   ÁGORA 2026 — DESIGN SYSTEM SUPABASE CLOUD & SEGURANÇA
+   ========================================================================== */
+.agora-cloud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.agora-cloud-pill.syncing {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+.agora-cloud-pill.offline {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+.agora-cloud-pill.blocked {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FCA5A5;
+}
+.agora-cloud-pill .cloud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+}
+.agora-cloud-pill.syncing .cloud-dot {
+  background: #3B82F6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+.agora-cloud-pill.offline .cloud-dot {
+  background: #F59E0B;
+}
+.agora-cloud-pill.blocked .cloud-dot {
+  background: #EF4444;
+}
+
+/* Feedback no Modal de Autenticação */
+.auth-feedback-box {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.auth-feedback-box.info {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+.auth-feedback-box.success {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+.auth-feedback-box.error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #F87171;
+}
+.auth-role-card.role-locked {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  filter: grayscale(0.8);
+}
+
 </style>
 <style>
 
@@ -2738,6 +2823,90 @@ body.theme-dark .gestor-card-section {
   margin: 8px 0;
 }
 
+
+/* ==========================================================================
+   ÁGORA 2026 — DESIGN SYSTEM SUPABASE CLOUD & SEGURANÇA
+   ========================================================================== */
+.agora-cloud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.agora-cloud-pill.syncing {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+.agora-cloud-pill.offline {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+.agora-cloud-pill.blocked {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FCA5A5;
+}
+.agora-cloud-pill .cloud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+}
+.agora-cloud-pill.syncing .cloud-dot {
+  background: #3B82F6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+.agora-cloud-pill.offline .cloud-dot {
+  background: #F59E0B;
+}
+.agora-cloud-pill.blocked .cloud-dot {
+  background: #EF4444;
+}
+
+/* Feedback no Modal de Autenticação */
+.auth-feedback-box {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.auth-feedback-box.info {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+.auth-feedback-box.success {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+.auth-feedback-box.error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #F87171;
+}
+.auth-role-card.role-locked {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  filter: grayscale(0.8);
+}
+
 </style>
 <style>
 
@@ -2927,6 +3096,90 @@ body.theme-dark .gestor-card-section {
   transform: translateY(0);
 }
 
+
+/* ==========================================================================
+   ÁGORA 2026 — DESIGN SYSTEM SUPABASE CLOUD & SEGURANÇA
+   ========================================================================== */
+.agora-cloud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.agora-cloud-pill.syncing {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border-color: #BFDBFE;
+}
+.agora-cloud-pill.offline {
+  background: #FEF3C7;
+  color: #92400E;
+  border-color: #FDE68A;
+}
+.agora-cloud-pill.blocked {
+  background: #FEE2E2;
+  color: #991B1B;
+  border-color: #FCA5A5;
+}
+.agora-cloud-pill .cloud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+}
+.agora-cloud-pill.syncing .cloud-dot {
+  background: #3B82F6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+}
+.agora-cloud-pill.offline .cloud-dot {
+  background: #F59E0B;
+}
+.agora-cloud-pill.blocked .cloud-dot {
+  background: #EF4444;
+}
+
+/* Feedback no Modal de Autenticação */
+.auth-feedback-box {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.auth-feedback-box.info {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+.auth-feedback-box.success {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+.auth-feedback-box.error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #F87171;
+}
+.auth-role-card.role-locked {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+  filter: grayscale(0.8);
+}
+
 </style>
 <style>
 
@@ -2987,6 +3240,7 @@ body.theme-dark .gestor-card-section {
     </div>
     <div class="auth-body">
       <form id="auth-form" onsubmit="event.preventDefault(); AgoraApp.salvarCadastroInicial();">
+                <div id="auth-feedback-box" class="auth-feedback-box" style="display:none;"></div>
         <label style="display:block; font-size:11px; font-weight:700; color:#1E293B; margin-bottom:8px; text-transform:uppercase;">Selecione seu Perfil de Acesso:</label>
         <div class="auth-role-selector">
           <div class="auth-role-card selected" id="role-btn-instrutor" onclick="AgoraApp.selectRole('instrutor')">
@@ -3014,11 +3268,11 @@ body.theme-dark .gestor-card-section {
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="auth-form-group">
             <label for="auth-matricula">Matrícula AeC *</label>
-            <input type="text" id="auth-matricula" placeholder="Ex: 345678" required />
+            <input type="text" id="auth-matricula" placeholder="Ex: 345678" required onblur="AgoraApp.verificarCredencialEmTempoReal()" oninput="AgoraApp.debounceCredencialInput()" />
           </div>
           <div class="auth-form-group">
             <label for="auth-email">E-mail Corporativo *</label>
-            <input type="email" id="auth-email" placeholder="nome.sobrenome@aec.com.br" required />
+            <input type="email" id="auth-email" placeholder="nome.sobrenome@aec.com.br" required onblur="AgoraApp.verificarCredencialEmTempoReal()" oninput="AgoraApp.debounceCredencialInput()" />
           </div>
         </div>
 
@@ -3119,6 +3373,11 @@ body.theme-dark .gestor-card-section {
           <span>👤 <strong id="nav-user-name">Usuário</strong></span>
           <span id="nav-user-badge" class="auth-user-badge badge-instrutor">Instrutor</span>
           <button type="button" onclick="AgoraApp.abrirTrocaPerfil()" title="Trocar perfil ou editar cadastro" style="background:none; border:none; cursor:pointer; font-size:12px; color:#64748B;">⚙️</button>
+        </div>
+
+                <div id="agora-cloud-badge" class="agora-cloud-pill" title="Sincronização em tempo real com a Nuvem ÁGORA">
+          <span class="cloud-dot"></span>
+          <span class="cloud-text">☁️ Nuvem Conectada</span>
         </div>
 
         <div class="cycle-progress-pill" title="Progresso Global dos 3 Blocos do Ciclo">
@@ -5092,6 +5351,19 @@ body.theme-dark .gestor-card-section {
 
       <!-- Card do Participante Liderado -->
       <div class="gestor-card-section" style="border-left: 5px solid #08B7BC;">
+        <!-- Seletor de Instrutores Supabase Nuvem -->
+        <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <label for="gestor-select-instrutor" style="font-size:12px;font-weight:700;color:#053D68;">👥 Instrutores no Supabase:</label>
+            <select id="gestor-select-instrutor" onchange="AgoraApp.selecionarInstrutorGestor(this.value)" style="padding:6px 12px;border-radius:6px;border:1px solid #08B7BC;background:#fff;font-size:13px;font-weight:600;color:#053D68;cursor:pointer;">
+              <option value="AEC-2026-88">João Silva (AEC-2026-88)</option>
+              <option value="AEC-2026-01">Camila Ferreira Mendes (AEC-2026-01)</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline" onclick="AgoraApp.carregarListaInstrutoresGestor(true)" style="padding:4px 10px;font-size:11px;" title="Atualizar dados diretamente da nuvem Supabase">
+            🔄 Sincronizar Nuvem
+          </button>
+        </div>
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;">
           <div>
             <span style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;">INSTRUTOR SOB ACOMPANHAMENTO</span>
@@ -8782,6 +9054,671 @@ AgoraApp.mudarPerfilRapido = function(perfil) {
 
   previousMudarPerfil.call(this, perfil);
 };
+
+
+/* ==========================================================================
+   ÁGORA 2026 — INTEGRAÇÃO PROFISSIONAL COM SUPABASE & CONTROLE DE ACESSO ESTRITO
+   Endpoint: https://mxahgjxcdtodbdbxymtb.supabase.co
+   Tabelas: usuarios, jornada_respostas, missoes_praticas, checkpoints_lideranca, facilitador_sala
+   ========================================================================== */
+
+window.AgoraSupabase = {
+  url: 'https://mxahgjxcdtodbdbxymtb.supabase.co',
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14YWhnanhjZHRvZGJkYnh5bXRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMzc5MTQsImV4cCI6MjEwODYxMzkxNH0.OXtWb9aT_hCAqgaHk-f-0RIK2RXMTC5aA6-7-KMaWu0',
+  client: null,
+  isOnline: false,
+
+  init: function() {
+    try {
+      if (window.supabase && typeof window.supabase.createClient === 'function') {
+        this.client = window.supabase.createClient(this.url, this.anonKey);
+        this.testConnection();
+      } else {
+        this.updateBadge('offline', 'Modo Local');
+      }
+    } catch(err) {
+      console.warn('Supabase init warning:', err);
+      this.updateBadge('offline', 'Modo Local');
+    }
+  },
+
+  updateBadge: function(status, text) {
+    const badge = document.getElementById('agora-cloud-badge');
+    if (!badge) return;
+    badge.className = 'agora-cloud-pill ' + (status || '');
+    const txt = badge.querySelector('.cloud-text');
+    if (txt) {
+      txt.textContent = text || '☁️ Nuvem Conectada';
+    }
+  },
+
+  testConnection: async function() {
+    if (!this.client) return;
+    try {
+      this.updateBadge('syncing', 'Sincronizando...');
+      const { data, error } = await this.client.from('usuarios').select('matricula').limit(1);
+      if (!error) {
+        this.isOnline = true;
+        this.updateBadge('', '☁️ Nuvem Sincronizada');
+      } else {
+        this.isOnline = false;
+        this.updateBadge('offline', 'Modo Offline');
+      }
+    } catch(e) {
+      this.isOnline = false;
+      this.updateBadge('offline', 'Modo Offline');
+    }
+  },
+
+  // Consulta atômica por matrícula ou e-mail
+  buscarUsuario: async function(matricula, email) {
+    if (!this.client) return null;
+    try {
+      let query = this.client.from('usuarios').select('*');
+      if (matricula && email) {
+        query = query.or('matricula.eq.' + matricula + ',email.eq.' + email);
+      } else if (matricula) {
+        query = query.eq('matricula', matricula);
+      } else if (email) {
+        query = query.eq('email', email);
+      } else {
+        return null;
+      }
+      const { data, error } = await query.limit(1);
+      if (!error && data && data.length > 0) {
+        return data[0];
+      }
+    } catch(e) {
+      console.warn('Erro ao buscar usuário na nuvem:', e);
+    }
+    return null;
+  },
+
+  salvarUsuario: async function(user) {
+    if (!this.client || !user || !user.matricula) return false;
+    try {
+      this.updateBadge('syncing', 'Salvando usuário...');
+      const { data, error } = await this.client.from('usuarios').upsert({
+        matricula: user.matricula,
+        nome: user.nome,
+        email: user.email,
+        operacao: user.operacao || '',
+        gestor: user.gestor || '',
+        perfil: user.perfil || 'instrutor',
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'matricula' });
+      if (!error) {
+        this.updateBadge('', '☁️ Nuvem Sincronizada');
+        return true;
+      }
+    } catch(e) {
+      this.updateBadge('offline', 'Salvo Localmente');
+    }
+    return false;
+  },
+
+  listarInstrutores: async function() {
+    if (!this.client) return [];
+    try {
+      const { data, error } = await this.client
+        .from('usuarios')
+        .select('*')
+        .eq('perfil', 'instrutor')
+        .order('nome', { ascending: true });
+      if (!error && data) return data;
+    } catch(e) {}
+    return [];
+  },
+
+  salvarJornada: async function(matricula, state) {
+    if (!this.client || !matricula || !state) return;
+    try {
+      const b1 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(1) : 0;
+      const b2 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(2) : 0;
+      const b3 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(3) : 0;
+      const geral = Math.round((b1 + b2 + b3) / 3);
+
+      this.updateBadge('syncing', 'Sincronizando trilha...');
+      await this.client.from('jornada_respostas').upsert({
+        matricula: matricula,
+        invite: state.invite || {},
+        locks: state.locks || {},
+        fields: state.fields || {},
+        progresso_bloco1: b1,
+        progresso_bloco2: b2,
+        progresso_bloco3: b3,
+        progresso_geral: geral,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'matricula' });
+      this.updateBadge('', '☁️ Nuvem Sincronizada');
+    } catch(e) {
+      this.updateBadge('offline', 'Salvo Localmente');
+    }
+  },
+
+  carregarJornada: async function(matricula) {
+    if (!this.client || !matricula) return null;
+    try {
+      const { data, error } = await this.client.from('jornada_respostas').select('*').eq('matricula', matricula).maybeSingle();
+      if (!error && data) return data;
+    } catch(e) {}
+    return null;
+  },
+
+  salvarMissoes: async function(matricula, missoesState) {
+    if (!this.client || !matricula || !missoesState) return;
+    try {
+      const total = Object.values(missoesState.checks || {}).filter(Boolean).length;
+      await this.client.from('missoes_praticas').upsert({
+        matricula: matricula,
+        checks: missoesState.checks || {},
+        texts: missoesState.texts || {},
+        total_concluidas: total,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'matricula' });
+    } catch(e) {}
+  },
+
+  carregarMissoes: async function(matricula) {
+    if (!this.client || !matricula) return null;
+    try {
+      const { data, error } = await this.client.from('missoes_praticas').select('*').eq('matricula', matricula).maybeSingle();
+      if (!error && data) return data;
+    } catch(e) {}
+    return null;
+  },
+
+  salvarCheckpoint: async function(matricula, checkpointNum, cpData) {
+    if (!this.client || !matricula) return;
+    try {
+      this.updateBadge('syncing', 'Salvando checkpoint...');
+      await this.client.from('checkpoints_lideranca').upsert({
+        matricula: matricula,
+        checkpoint_num: checkpointNum,
+        resposta_lideranca: cpData.resposta_lideranca || cpData.resp || '',
+        status: cpData.status || 'pendente',
+        gestor_nome: cpData.gestor_nome || cpData.gestor || '',
+        data_validacao: cpData.data_validacao || cpData.data || '',
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'matricula,checkpoint_num' });
+      this.updateBadge('', '☁️ Nuvem Sincronizada');
+    } catch(e) {
+      this.updateBadge('offline', 'Salvo Localmente');
+    }
+  },
+
+  carregarCheckpoints: async function(matricula) {
+    if (!this.client || !matricula) return [];
+    try {
+      const { data, error } = await this.client.from('checkpoints_lideranca').select('*').eq('matricula', matricula).order('checkpoint_num');
+      if (!error && data) return data;
+    } catch(e) {}
+    return [];
+  },
+
+  carregarSala: async function() {
+    if (!this.client) return null;
+    try {
+      const { data, error } = await this.client.from('facilitador_sala').select('*').eq('id', 'sala_principal').maybeSingle();
+      if (!error && data) return data;
+    } catch(e) {}
+    return null;
+  },
+
+  salvarSala: async function(salaData) {
+    if (!this.client || !salaData) return;
+    try {
+      await this.client.from('facilitador_sala').upsert({
+        id: 'sala_principal',
+        timer_seconds_remaining: salaData.timer_seconds_remaining || 18000,
+        timer_running: salaData.timer_running || false,
+        etapa_atual: salaData.etapa_atual || 1,
+        block1_unlocked: salaData.block1_unlocked ?? true,
+        block2_unlocked: salaData.block2_unlocked ?? true,
+        block3_unlocked: salaData.block3_unlocked ?? true,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'id' });
+    } catch(e) {}
+  }
+};
+
+/* ==========================================================================
+   CONTROLE DE ACESSO, SEGURANÇA E UNICIDADE DE PERFIL NO CADASTRO/LOGIN
+   ========================================================================== */
+
+AgoraApp.lockedPerfil = null;
+AgoraApp.credencialTimer = null;
+
+AgoraApp.debounceCredencialInput = function() {
+  clearTimeout(this.credencialTimer);
+  this.credencialTimer = setTimeout(() => {
+    this.verificarCredencialEmTempoReal();
+  }, 450);
+};
+
+AgoraApp.mostrarFeedbackAuth = function(tipo, mensagem) {
+  const box = document.getElementById('auth-feedback-box');
+  if (!box) return;
+  box.className = 'auth-feedback-box ' + tipo;
+  box.innerHTML = mensagem;
+  box.style.display = 'flex';
+};
+
+AgoraApp.limparFeedbackAuth = function() {
+  const box = document.getElementById('auth-feedback-box');
+  if (box) box.style.display = 'none';
+};
+
+// Sobrescrever selectRole para impedir troca quando o perfil for fixado
+const origSelectRole = AgoraApp.selectRole;
+AgoraApp.selectRole = function(role, isSystemLock) {
+  if (this.lockedPerfil && this.lockedPerfil !== role && !isSystemLock) {
+    const nomePerfil = this.lockedPerfil === 'gestor' ? 'Gestor' : this.lockedPerfil === 'facilitador' ? 'Facilitador' : 'Instrutor';
+    this.mostrarFeedbackAuth('error', '⛔ <strong>Acesso Restrito:</strong> Esta matrícula/e-mail está vinculada exclusivamente ao perfil <strong>' + nomePerfil + '</strong>. Não é permitido alterar.');
+    return;
+  }
+  
+  if (origSelectRole) {
+    origSelectRole.call(this, role);
+  } else {
+    this.selectedRole = role;
+    ['instrutor', 'gestor', 'facilitador'].forEach(r => {
+      const el = document.getElementById('role-btn-' + r);
+      if (el) el.classList.toggle('selected', r === role);
+    });
+  }
+};
+
+AgoraApp.travarSelecaoPerfil = function(perfilAutorizado) {
+  this.lockedPerfil = perfilAutorizado;
+  this.selectRole(perfilAutorizado, true);
+  ['instrutor', 'gestor', 'facilitador'].forEach(r => {
+    const el = document.getElementById('role-btn-' + r);
+    if (el) {
+      if (r !== perfilAutorizado) {
+        el.classList.add('role-locked');
+      } else {
+        el.classList.remove('role-locked');
+        el.classList.add('selected');
+      }
+    }
+  });
+};
+
+AgoraApp.destravarSelecaoPerfil = function() {
+  this.lockedPerfil = null;
+  ['instrutor', 'gestor', 'facilitador'].forEach(r => {
+    const el = document.getElementById('role-btn-' + r);
+    if (el) el.classList.remove('role-locked');
+  });
+};
+
+AgoraApp.verificarCredencialEmTempoReal = async function() {
+  const matEl = document.getElementById('auth-matricula');
+  const emailEl = document.getElementById('auth-email');
+  if (!matEl || !emailEl) return;
+
+  const matricula = matEl.value.trim();
+  const email = emailEl.value.trim();
+
+  if (matricula.length < 3 && email.length < 5) {
+    this.destravarSelecaoPerfil();
+    this.limparFeedbackAuth();
+    return;
+  }
+
+  const existingUser = await window.AgoraSupabase.buscarUsuario(matricula, email);
+  if (existingUser) {
+    const nomeEl = document.getElementById('auth-nome');
+    const opEl = document.getElementById('auth-operacao');
+    const gestEl = document.getElementById('auth-gestor');
+
+    if (nomeEl && !nomeEl.value) nomeEl.value = existingUser.nome || '';
+    if (opEl && !opEl.value) opEl.value = existingUser.operacao || '';
+    if (gestEl && !gestEl.value) gestEl.value = existingUser.gestor || '';
+
+    const perfilOficial = existingUser.perfil || 'instrutor';
+    const perfilNome = perfilOficial === 'gestor' ? 'Gestor' : perfilOficial === 'facilitador' ? 'Facilitador' : 'Instrutor';
+
+    this.travarSelecaoPerfil(perfilOficial);
+    this.mostrarFeedbackAuth('info', '👤 <strong>Colaborador Identificado:</strong> ' + existingUser.nome + ' | Perfil Oficial: <strong>' + perfilNome + '</strong>');
+  } else {
+    this.destravarSelecaoPerfil();
+    this.mostrarFeedbackAuth('info', '✨ <strong>Novo Cadastro:</strong> Selecione seu perfil de atuação e preencha os dados.');
+  }
+};
+
+// Implementação Segura de salvarCadastroInicial com verificação rigorosa na nuvem
+AgoraApp.salvarCadastroInicial = async function() {
+  const nome = document.getElementById('auth-nome').value.trim();
+  const matricula = document.getElementById('auth-matricula').value.trim();
+  const email = document.getElementById('auth-email').value.trim();
+  const operacao = document.getElementById('auth-operacao').value.trim();
+  const gestor = document.getElementById('auth-gestor').value.trim();
+  const perfilDesejado = this.selectedRole || 'instrutor';
+
+  if (!nome || !matricula || !email) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  // Desabilitar botão para evitar cliques duplicados
+  const submitBtn = document.querySelector('#auth-form button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = '🔒 Verificando autorização na Nuvem...';
+  }
+
+  try {
+    // 1. CHECAGEM ESTRITA DE UNICIDADE NA NUVEM
+    const existingUser = await window.AgoraSupabase.buscarUsuario(matricula, email);
+
+    if (existingUser) {
+      const perfilCadastrado = existingUser.perfil || 'instrutor';
+      const perfilCadastradoNome = perfilCadastrado === 'gestor' ? 'GESTOR' : perfilCadastrado === 'facilitador' ? 'FACILITADOR' : 'INSTRUTOR';
+      const perfilDesejadoNome = perfilDesejado === 'gestor' ? 'GESTOR' : perfilDesejado === 'facilitador' ? 'FACILITADOR' : 'INSTRUTOR';
+
+      // SE O USUÁRIO TENTAR ENTRAR COM PERFIL DIFERENTE DO CADASTRADO: BLOQUEIO TOTAL
+      if (perfilCadastrado !== perfilDesejado) {
+        alert('⛔ ACESSO NÃO AUTORIZADO!\n\nA matrícula (' + matricula + ') ou e-mail (' + email + ') já está cadastrado no sistema como: ' + perfilCadastradoNome + '.\n\nPor regras de segurança da Jornada ÁGORA, não é permitido acessar como ' + perfilDesejadoNome + ' com as mesmas credenciais.\n\nVocê será redirecionado para o seu perfil legítimo: ' + perfilCadastradoNome + '.');
+        
+        // Corrige a seleção e bloqueia tentativa de escalação
+        this.travarSelecaoPerfil(perfilCadastrado);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = '🚀 Acessar Plataforma Ágora';
+        }
+        return;
+      }
+
+      // Se o perfil confere, atualiza dados da sessão com o registro oficial
+      this.currentUser = {
+        nome: existingUser.nome || nome,
+        matricula: existingUser.matricula || matricula,
+        email: existingUser.email || email,
+        operacao: existingUser.operacao || operacao,
+        gestor: existingUser.gestor || gestor,
+        perfil: perfilCadastrado,
+        dataCadastro: existingUser.created_at ? new Date(existingUser.created_at).toLocaleDateString('pt-BR') : new Date().toLocaleDateString('pt-BR')
+      };
+
+    } else {
+      // 2. NOVO CADASTRO: Registra no Supabase
+      this.currentUser = {
+        nome: nome,
+        matricula: matricula,
+        email: email,
+        operacao: operacao,
+        gestor: gestor,
+        perfil: perfilDesejado,
+        dataCadastro: new Date().toLocaleDateString('pt-BR')
+      };
+
+      await window.AgoraSupabase.salvarUsuario(this.currentUser);
+    }
+
+    // Salvar no localStorage para persistência offline
+    localStorage.setItem('agora_usuario_ativo', JSON.stringify(this.currentUser));
+
+    // Carregar jornada correspondente da nuvem
+    if (this.currentUser.perfil === 'instrutor') {
+      const cloudJornada = await window.AgoraSupabase.carregarJornada(this.currentUser.matricula);
+      if (cloudJornada && cloudJornada.fields) {
+        if (!this.state) this.state = {};
+        this.state.fields = Object.assign({}, this.state.fields || {}, cloudJornada.fields);
+        if (cloudJornada.locks) this.state.locks = Object.assign({}, this.state.locks || {}, cloudJornada.locks);
+        if (this.saveState) this.saveState();
+      }
+
+      const cloudMissoes = await window.AgoraSupabase.carregarMissoes(this.currentUser.matricula);
+      if (cloudMissoes) {
+        localStorage.setItem('agora_missoes_praticas', JSON.stringify({
+          checks: cloudMissoes.checks || {},
+          texts: cloudMissoes.texts || {}
+        }));
+      }
+    }
+
+    // Fechar modal de autenticação
+    document.getElementById('auth-overlay').style.display = 'none';
+
+    // Aplicar regras de interface e redirecionar
+    this.aplicarPerfil(this.currentUser.perfil);
+    this.atualizarBarraUsuario();
+
+    if (this.currentUser.perfil === 'gestor') {
+      this.switchView('view-gestor');
+      this.carregarListaInstrutoresGestor(false);
+    } else if (this.currentUser.perfil === 'facilitador') {
+      this.switchView('view-facilitador');
+    } else {
+      this.switchView('view-inicio');
+    }
+
+    this.mostrarToast('✨ Bem-vindo(a), ' + this.currentUser.nome + '! Acesso verificado via Nuvem Ágora.', '🏛️');
+
+  } catch(err) {
+    console.error('Erro no fluxo de autenticação:', err);
+    alert('Erro ao validar acesso na nuvem. Verifique sua conexão.');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '🚀 Acessar Plataforma Ágora';
+    }
+  }
+};
+
+// Logout e Troca de Acesso Limpo
+AgoraApp.abrirTrocaPerfil = function() {
+  if (confirm('Deseja realmente sair da sessão atual?')) {
+    localStorage.removeItem('agora_usuario_ativo');
+    this.currentUser = null;
+    this.destravarSelecaoPerfil();
+    this.limparFeedbackAuth();
+    
+    // Limpar campos do modal
+    const f = document.getElementById('auth-form');
+    if (f) f.reset();
+    
+    this.abrirModalCadastro();
+  }
+};
+
+/* ==========================================================================
+   SINCRONIZAÇÃO EM CADA ÁREA (INSTRUTOR, GESTOR, FACILITADOR)
+   ========================================================================== */
+
+// 1. ÁREA DO GESTOR: Gestão de Liderados e Checkpoints 1:1
+AgoraApp.selectedLideradoMatricula = 'AEC-2026-88';
+
+AgoraApp.carregarListaInstrutoresGestor = async function(mostrarToastMsg) {
+  const select = document.getElementById('gestor-select-instrutor');
+  if (!select) return;
+
+  const instrutores = await window.AgoraSupabase.listarInstrutores();
+  if (instrutores && instrutores.length > 0) {
+    select.innerHTML = instrutores.map(inst => `
+      <option value="${inst.matricula}">${inst.nome} (${inst.matricula})</option>
+    `).join('');
+
+    // Manter seleção atual ou pegar o primeiro
+    const exists = instrutores.some(i => i.matricula === this.selectedLideradoMatricula);
+    if (!exists) {
+      this.selectedLideradoMatricula = instrutores[0].matricula;
+    }
+    select.value = this.selectedLideradoMatricula;
+  }
+
+  await this.selecionarInstrutorGestor(select.value || this.selectedLideradoMatricula);
+  if (mostrarToastMsg) {
+    this.mostrarToast('☁️ Dados do Supabase sincronizados com sucesso!', '☁️');
+  }
+};
+
+AgoraApp.selecionarInstrutorGestor = async function(matricula) {
+  if (!matricula) return;
+  this.selectedLideradoMatricula = matricula;
+
+  // 1. Carregar Dados Cadastrais do Liderado
+  const user = await window.AgoraSupabase.buscarUsuario(matricula);
+  if (user) {
+    const nomeEl = document.getElementById('gestor-part-nome');
+    const matEl = document.getElementById('gestor-part-mat');
+    const opEl = document.getElementById('gestor-part-op');
+    const gestEl = document.getElementById('gestor-part-gestor');
+    if (nomeEl) nomeEl.textContent = user.nome;
+    if (matEl) matEl.textContent = user.matricula;
+    if (opEl) opEl.textContent = user.operacao || 'Operações AeC';
+    if (gestEl) gestEl.textContent = user.gestor || 'Liderança Imediata';
+  }
+
+  // 2. Carregar Progresso da Jornada
+  const jornada = await window.AgoraSupabase.carregarJornada(matricula);
+  const progresso = jornada ? (jornada.progresso_geral || 0) : 0;
+  const kpiProg = document.getElementById('gestor-kpi-progresso');
+  if (kpiProg) kpiProg.textContent = progresso + '%';
+
+  const statusEl = document.getElementById('gestor-part-status');
+  if (statusEl) {
+    if (progresso >= 100) {
+      statusEl.className = 'checkpoint-tag concluido';
+      statusEl.textContent = 'Jornada Concluída';
+    } else if (progresso > 0) {
+      statusEl.className = 'checkpoint-tag em_analise';
+      statusEl.textContent = 'Em Andamento';
+    } else {
+      statusEl.className = 'checkpoint-tag pendente';
+      statusEl.textContent = 'Não Iniciada';
+    }
+  }
+
+  // 3. Carregar Missões Práticas
+  const missoes = await window.AgoraSupabase.carregarMissoes(matricula);
+  const totalMissoes = missoes ? (missoes.total_concluidas || 0) : 0;
+  const kpiMiss = document.getElementById('gestor-kpi-missoes');
+  if (kpiMiss) kpiMiss.textContent = totalMissoes + ' / 8';
+
+  // 4. Carregar Checkpoints 1:1
+  const cps = await window.AgoraSupabase.carregarCheckpoints(matricula);
+  let validadosCount = 0;
+  for (let num = 1; num <= 3; num++) {
+    const cp = cps.find(c => c.checkpoint_num === num);
+    const gText = document.getElementById('g_cp' + num + '_text');
+    const badge = document.getElementById('g_cp' + num + '_badge');
+    if (cp) {
+      if (gText) gText.value = cp.resposta_lideranca || '';
+      if (badge) {
+        if (cp.status === 'concluido') {
+          validadosCount++;
+          badge.className = 'checkpoint-tag concluido';
+          badge.textContent = 'Validado em ' + (cp.data_validacao || 'Nuvem');
+        } else {
+          badge.className = 'checkpoint-tag pendente';
+          badge.textContent = 'Pendente';
+        }
+      }
+    } else {
+      if (gText) gText.value = '';
+      if (badge) {
+        badge.className = 'checkpoint-tag pendente';
+        badge.textContent = 'Pendente';
+      }
+    }
+  }
+
+  const kpiCp = document.getElementById('gestor-kpi-checkpoints');
+  if (kpiCp) kpiCp.textContent = validadosCount + ' / 3';
+};
+
+// Validação de Checkpoints pelo Gestor no Supabase
+const origSalvarCpGestor = AgoraApp.salvarCheckpointGestor;
+AgoraApp.salvarCheckpointGestor = function(num) {
+  if (origSalvarCpGestor) origSalvarCpGestor.call(this, num);
+  const mat = this.selectedLideradoMatricula || 'AEC-2026-88';
+  const resp = document.getElementById('g_cp' + num + '_text')?.value || '';
+  const cpData = {
+    resposta_lideranca: resp,
+    status: 'concluido',
+    gestor_nome: this.currentUser?.nome || 'Gestor Imediato',
+    data_validacao: new Date().toLocaleDateString('pt-BR')
+  };
+  window.AgoraSupabase.salvarCheckpoint(mat, num, cpData);
+  this.mostrarToast('✅ Checkpoint ' + num + ' validado e assinado na Nuvem!', '✍️');
+  setTimeout(() => this.selecionarInstrutorGestor(mat), 300);
+};
+
+// 2. ÁREA DO INSTRUTOR: Auto-save de respostas e missões na Nuvem
+let _debounceSupabaseTimer = null;
+const origSaveState = AgoraApp.saveState;
+AgoraApp.saveState = function() {
+  if (origSaveState) origSaveState.call(this);
+  if (this.currentUser && this.currentUser.matricula && this.currentUser.perfil === 'instrutor' && window.AgoraSupabase) {
+    clearTimeout(_debounceSupabaseTimer);
+    _debounceSupabaseTimer = setTimeout(() => {
+      window.AgoraSupabase.salvarJornada(this.currentUser.matricula, this.state);
+    }, 800);
+  }
+};
+
+const origSalvarMissoes = AgoraApp.salvarMissoes;
+AgoraApp.salvarMissoes = function() {
+  if (origSalvarMissoes) origSalvarMissoes.call(this);
+  if (this.currentUser && this.currentUser.matricula && window.AgoraSupabase) {
+    const raw = localStorage.getItem('agora_missoes_praticas');
+    if (raw) {
+      try {
+        window.AgoraSupabase.salvarMissoes(this.currentUser.matricula, JSON.parse(raw));
+      } catch(e) {}
+    }
+  }
+};
+
+// 3. INICIALIZAÇÃO DA APLICAÇÃO COM VALIDAÇÃO CLOUD
+const origInitAuth = AgoraApp.initAuth;
+AgoraApp.initAuth = async function() {
+  const savedUser = localStorage.getItem('agora_usuario_ativo');
+  if (savedUser) {
+    try {
+      this.currentUser = JSON.parse(savedUser);
+      
+      // Validação em background na Nuvem para garantir que perfil não foi adulterado
+      if (this.currentUser && this.currentUser.matricula && window.AgoraSupabase) {
+        window.AgoraSupabase.buscarUsuario(this.currentUser.matricula).then(cloudUser => {
+          if (cloudUser && cloudUser.perfil && cloudUser.perfil !== this.currentUser.perfil) {
+            console.warn('Perfil corrigido pela Nuvem:', cloudUser.perfil);
+            this.currentUser.perfil = cloudUser.perfil;
+            localStorage.setItem('agora_usuario_ativo', JSON.stringify(this.currentUser));
+            this.aplicarPerfil(cloudUser.perfil);
+          }
+        });
+      }
+
+      const perfil = this.currentUser.perfil || 'instrutor';
+      this.aplicarPerfil(perfil);
+      this.atualizarBarraUsuario();
+
+      if (perfil === 'gestor') {
+        this.switchView('view-gestor');
+        this.carregarListaInstrutoresGestor(false);
+      } else if (perfil === 'facilitador') {
+        this.switchView('view-facilitador');
+      } else {
+        this.switchView('view-inicio');
+      }
+    } catch(e) {
+      this.abrirModalCadastro();
+    }
+  } else {
+    this.abrirModalCadastro();
+  }
+};
+
+// Inicialização automática ao carregar
+window.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    window.AgoraSupabase.init();
+  }, 250);
+});
 
 </script>
 
