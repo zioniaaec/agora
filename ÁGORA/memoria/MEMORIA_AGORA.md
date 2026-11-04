@@ -78,9 +78,10 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 
 ## 5. Estado Atual e Validação
 
-* ✅ **Arquivo Principal:** `index.html` (~405 KB com integração Supabase e fallback offline).
-* ✅ **Equilíbrio de Tags:** DIVs (701/701, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
-* ✅ **Sincronização Bidirecional:** Salva e carrega dados em tempo real no Supabase.
+* ✅ **Arquivo Principal:** `index.html` (~406 KB com integração Supabase e fallback offline).
+* ✅ **Equilíbrio de Tags:** DIVs (702/702, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
+* ✅ **Unicidade de Matrícula/E-mail e Perfil Fixo:** Impede escalação de privilégios ou duplicidade de papéis com os mesmos dados cadastrais.
+* ✅ **Sincronização Bidirecional:** Salva e carrega dados em tempo real no Supabase em todas as três áreas (Instrutor, Gestor e Facilitador).
 * ✅ **Seletor de Instrutores no Portal do Gestor:** Permite à liderança selecionar qualquer instrutor cadastrado no Supabase e auditar seus dados e checkpoints em tempo real.
 * ✅ **Zero Dependências de Build:** Funciona imediatamente no GitHub Pages, Vercel ou via arquivo local.
 
@@ -91,3 +92,10 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 - **Políticas RLS Permissivas para Frontend Autônomo:** Ao permitir que clientes via `anon` leiam e atualizem seus registros através de políticas adequadas (`FOR ALL TO anon, authenticated USING (true) WITH CHECK (true)`), eliminamos atritos de autorização sem demandar servidores intermediários adicionais.
 - **Tratamento Híbrido Nuvem + Local:** A inclusão de um mecanismo de fallback resiliente (`localStorage` caso o Supabase falhe ou esteja offline) garante que a plataforma continue funcionando mesmo em ambientes corporativos com firewalls restritivos ou oscilação de rede.
 - **Push Protection do GitHub:** Tokens de acesso administrativo (como `sbp_...` do Supabase) são automaticamente bloqueados na esteira do Git em qualquer arquivo rastreado (código ou markdown). Mantemos credenciais sensíveis sempre protegidas via variáveis de ambiente da plataforma e documentadas apenas com máscaras no repositório.
+
+---
+
+## 7. Aprendizados [04/11/2026]
+
+- **Validação Antecipada de Credenciais e Anti-Escalação de Perfil:** Em plataformas com múltiplos perfis de acesso (Instrutor vs Gestor vs Facilitador), a verificação de existência por Matrícula e E-mail deve ocorrer tanto de forma assíncrona durante a digitação quanto de forma atômica e mandatória no envio do formulário. Se uma matrícula ou e-mail já estiver cadastrado como `instrutor`, o sistema bloqueia tentativas de acesso ou re-cadastro como `gestor`, fixando o perfil oficial registrado e impedindo invasão de privilégios.
+- **Integração Real End-to-End em Todas as Áreas:** Todas as abas da aplicação consomem e persistem dados reais no Supabase (`jornada_respostas`, `missoes_praticas`, `checkpoints_lideranca`, `facilitador_sala`), sem elementos estáticos ou mensagens de "fase de teste", mantendo o padrão visual oficial com indicadores elegantes de sincronização em nuvem.
