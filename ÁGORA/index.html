@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   
   
@@ -91,7 +90,8 @@ body.theme-dark {
   --agora-text-muted: #B0D4EC;
   --agora-text-light: #7FAED0;
   --agora-blue: #4BB3FD;
-  --agora-deep: #FFFFFF;
+  --agora-deep: #053D68;
+  --agora-heading: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -2379,6 +2379,52 @@ body.theme-dark .block-submit-footer {
   box-shadow: 0 0 0 3px rgba(18, 99, 154, 0.15);
 }
 
+
+
+/* ===== MELHORIAS DE CONTRASTE & LEGIBILIDADE (ÁGORA 2026) ===== */
+.nav-tab-btn.active {
+  background: var(--agora-turquoise) !important;
+  color: #032541 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(8, 183, 188, 0.35) !important;
+}
+.nav-tab-btn.active .badge-pill {
+  background: #032541 !important;
+  color: #FFFFFF !important;
+}
+.cycle-header-banner {
+  background: linear-gradient(135deg, #053D68 0%, #12639A 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(8, 183, 188, 0.25);
+}
+.cycle-header-banner h2 {
+  color: #FFFFFF !important;
+}
+.cycle-header-banner p {
+  color: #C7E8F7 !important;
+}
+.portal-gestor-header {
+  background: linear-gradient(135deg, #053D68 0%, #12639A 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(8, 183, 188, 0.25);
+}
+.portal-gestor-header h2 {
+  color: #FFFFFF !important;
+}
+.portal-gestor-header p {
+  color: #C7E8F7 !important;
+}
+body.theme-dark .gestor-card-section h3 {
+  color: #FFFFFF !important;
+}
+body.theme-dark .gestor-kpi-val {
+  color: var(--agora-turquoise) !important;
+}
+body.theme-dark .gestor-card-section {
+  background: var(--agora-white) !important;
+  border-color: var(--agora-border) !important;
+}
+
 </style>
 <style>
 
@@ -2926,46 +2972,6 @@ body.theme-dark .block-submit-footer {
   border-color: #053D68;
 }
 
-/* ESTILOS SUPABASE REALTIME & NUVEM */
-.supabase-status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  background: #ECFDF5;
-  color: #065F46;
-  border: 1px solid #A7F3D0;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-.supabase-status-pill.offline {
-  background: #FEF3C7;
-  color: #92400E;
-  border-color: #FDE68A;
-}
-.supabase-status-pill.syncing {
-  background: #EFF6FF;
-  color: #1E40AF;
-  border-color: #BFDBFE;
-}
-.supabase-status-pill .status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10B981;
-}
-.supabase-status-pill.offline .status-dot {
-  background: #F59E0B;
-}
-.supabase-status-pill.syncing .status-dot {
-  background: #3B82F6;
-  box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
-}
-
-
 </style>
 </head>
 <body>
@@ -3113,11 +3119,6 @@ body.theme-dark .block-submit-footer {
           <span>👤 <strong id="nav-user-name">Usuário</strong></span>
           <span id="nav-user-badge" class="auth-user-badge badge-instrutor">Instrutor</span>
           <button type="button" onclick="AgoraApp.abrirTrocaPerfil()" title="Trocar perfil ou editar cadastro" style="background:none; border:none; cursor:pointer; font-size:12px; color:#64748B;">⚙️</button>
-        </div>
-
-                <div id="supabase-status-badge" class="supabase-status-pill" title="Sincronização em nuvem com Supabase">
-          <span class="status-dot"></span>
-          <span class="status-text">🟢 Supabase Nuvem</span>
         </div>
 
         <div class="cycle-progress-pill" title="Progresso Global dos 3 Blocos do Ciclo">
@@ -3274,9 +3275,7 @@ body.theme-dark .block-submit-footer {
           </div>
         </div>
       </div>
-/div>
-
-      <!-- OS 5 PILARES "AQUI VOCÊ VAI ENCONTRAR" (Pág. 02 da Revista) -->
+<!-- OS 5 PILARES "AQUI VOCÊ VAI ENCONTRAR" (Pág. 02 da Revista) -->
       <div class="pillars-grid">
         <div class="pillar-card">
           <div class="pillar-icon">🎯</div>
@@ -5093,19 +5092,6 @@ body.theme-dark .block-submit-footer {
 
       <!-- Card do Participante Liderado -->
       <div class="gestor-card-section" style="border-left: 5px solid #08B7BC;">
-        <!-- Seletor de Instrutores Supabase Nuvem -->
-        <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <label for="gestor-select-instrutor" style="font-size:12px;font-weight:700;color:#053D68;">👥 Instrutores no Supabase:</label>
-            <select id="gestor-select-instrutor" onchange="AgoraApp.selecionarInstrutorGestor(this.value)" style="padding:6px 12px;border-radius:6px;border:1px solid #08B7BC;background:#fff;font-size:13px;font-weight:600;color:#053D68;cursor:pointer;">
-              <option value="AEC-2026-88">João Silva (AEC-2026-88)</option>
-              <option value="AEC-2026-01">Camila Ferreira Mendes (AEC-2026-01)</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline" onclick="AgoraApp.carregarListaInstrutoresGestor(true)" style="padding:4px 10px;font-size:11px;" title="Atualizar dados diretamente da nuvem Supabase">
-            🔄 Sincronizar Nuvem
-          </button>
-        </div>
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;">
           <div>
             <span style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;">INSTRUTOR SOB ACOMPANHAMENTO</span>
@@ -8616,27 +8602,6 @@ AgoraApp.initAuth = function() {
       this.aplicarPerfil(perfil);
       this.atualizarBarraUsuario();
       
-      // Sincronização com a nuvem Supabase ao abrir
-      if (this.currentUser && this.currentUser.matricula && window.AgoraSupabase) {
-        if (perfil === 'instrutor') {
-          window.AgoraSupabase.carregarJornada(this.currentUser.matricula).then(cloudData => {
-            if (cloudData && cloudData.fields && Object.keys(cloudData.fields).length > 0) {
-              this.state.invite = { ...this.state.invite, ...(cloudData.invite || {}) };
-              this.state.locks = { ...this.state.locks, ...(cloudData.locks || {}) };
-              this.state.fields = { ...this.state.fields, ...(cloudData.fields || {}) };
-              this.saveState();
-              this.refreshAllUI();
-            }
-          });
-          window.AgoraSupabase.carregarMissoes(this.currentUser.matricula).then(cloudMissoes => {
-            if (cloudMissoes && (cloudMissoes.checks || cloudMissoes.texts)) {
-              localStorage.setItem('agora_missoes_praticas', JSON.stringify(cloudMissoes));
-              this.carregarMissoes();
-            }
-          });
-        }
-      }
-
       // REDIRECIONAMENTO IMEDIATO NA CARGA INICIAL
       if (perfil === 'gestor') {
         this.switchView('view-gestor');
@@ -8802,10 +8767,6 @@ AgoraApp.switchView = function(viewId) {
 
   // Se for gestor ou visão permitida, avança
   previousSwitchView.call(this, viewId);
-
-  if (viewId === 'view-gestor' && this.carregarListaInstrutoresGestor) {
-    this.carregarListaInstrutoresGestor(false);
-  }
 };
 
 // Impedir que instrutor ou facilitador mude de perfil via função rápida
@@ -8821,347 +8782,6 @@ AgoraApp.mudarPerfilRapido = function(perfil) {
 
   previousMudarPerfil.call(this, perfil);
 };
-
-
-/* ==========================================================================
-   ÁGORA 2026 — INTEGRAÇÃO SUPABASE NUVEM
-   Endpoint: https://mxahgjxcdtodbdbxymtb.supabase.co
-   Tabelas: usuarios, jornada_respostas, missoes_praticas, checkpoints_lideranca, facilitador_sala
-   ========================================================================== */
-window.AgoraSupabase = {
-  url: 'https://mxahgjxcdtodbdbxymtb.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14YWhnanhjZHRvZGJkYnh5bXRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMzc5MTQsImV4cCI6MjEwODYxMzkxNH0.OXtWb9aT_hCAqgaHk-f-0RIK2RXMTC5aA6-7-KMaWu0',
-  client: null,
-  isOnline: false,
-
-  init: function() {
-    try {
-      if (window.supabase && typeof window.supabase.createClient === 'function') {
-        this.client = window.supabase.createClient(this.url, this.anonKey);
-        this.testConnection();
-      } else {
-        console.warn('SDK Supabase não disponível, modo offline ativo.');
-        this.updateBadge('offline', '🟡 Modo Local');
-      }
-    } catch(err) {
-      console.error('Erro ao conectar Supabase:', err);
-      this.updateBadge('offline', '🟡 Modo Local');
-    }
-  },
-
-  updateBadge: function(status, text) {
-    const badge = document.getElementById('supabase-status-badge');
-    if (!badge) return;
-    badge.className = 'supabase-status-pill ' + (status || '');
-    const txt = badge.querySelector('.status-text');
-    if (txt) txt.textContent = text || '🟢 Supabase Nuvem';
-  },
-
-  testConnection: async function() {
-    if (!this.client) return;
-    try {
-      this.updateBadge('syncing', 'Conectando...');
-      const { data, error } = await this.client.from('usuarios').select('matricula').limit(1);
-      if (!error) {
-        this.isOnline = true;
-        this.updateBadge('', '🟢 Supabase Nuvem');
-      } else {
-        this.isOnline = false;
-        this.updateBadge('offline', '🟡 Supabase Offline');
-      }
-    } catch(e) {
-      this.isOnline = false;
-      this.updateBadge('offline', '🟡 Supabase Offline');
-    }
-  },
-
-  salvarUsuario: async function(user) {
-    if (!this.client || !user || !user.matricula) return;
-    try {
-      this.updateBadge('syncing', 'Salvando usuário...');
-      await this.client.from('usuarios').upsert({
-        matricula: user.matricula,
-        nome: user.nome,
-        email: user.email,
-        operacao: user.operacao || '',
-        gestor: user.gestor || '',
-        perfil: user.perfil || 'instrutor'
-      }, { onConflict: 'matricula' });
-      this.updateBadge('', '🟢 Supabase Nuvem');
-    } catch(e) {
-      this.updateBadge('offline', '🟡 Salvo Local');
-    }
-  },
-
-  listarInstrutores: async function() {
-    if (!this.client) return [];
-    try {
-      const { data, error } = await this.client
-        .from('usuarios')
-        .select('*')
-        .eq('perfil', 'instrutor')
-        .order('nome', { ascending: true });
-      if (!error && data) return data;
-    } catch(e) {}
-    return [];
-  },
-
-  salvarJornada: async function(matricula, state) {
-    if (!this.client || !matricula || !state) return;
-    try {
-      const b1 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(1) : 0;
-      const b2 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(2) : 0;
-      const b3 = AgoraApp.getBlockProgress ? AgoraApp.getBlockProgress(3) : 0;
-      const geral = Math.round((b1 + b2 + b3) / 3);
-
-      this.updateBadge('syncing', 'Sincronizando...');
-      await this.client.from('jornada_respostas').upsert({
-        matricula: matricula,
-        invite: state.invite || {},
-        locks: state.locks || {},
-        fields: state.fields || {},
-        progresso_bloco1: b1,
-        progresso_bloco2: b2,
-        progresso_bloco3: b3,
-        progresso_geral: geral
-      }, { onConflict: 'matricula' });
-      this.updateBadge('', '🟢 Supabase Nuvem');
-    } catch(e) {
-      this.updateBadge('offline', '🟡 Salvo Local');
-    }
-  },
-
-  carregarJornada: async function(matricula) {
-    if (!this.client || !matricula) return null;
-    try {
-      const { data, error } = await this.client.from('jornada_respostas').select('*').eq('matricula', matricula).maybeSingle();
-      if (!error && data) return data;
-    } catch(e) {}
-    return null;
-  },
-
-  salvarMissoes: async function(matricula, missoesState) {
-    if (!this.client || !matricula || !missoesState) return;
-    try {
-      const total = Object.values(missoesState.checks || {}).filter(Boolean).length;
-      await this.client.from('missoes_praticas').upsert({
-        matricula: matricula,
-        checks: missoesState.checks || {},
-        texts: missoesState.texts || {},
-        total_concluidas: total
-      }, { onConflict: 'matricula' });
-    } catch(e) {}
-  },
-
-  carregarMissoes: async function(matricula) {
-    if (!this.client || !matricula) return null;
-    try {
-      const { data, error } = await this.client.from('missoes_praticas').select('*').eq('matricula', matricula).maybeSingle();
-      if (!error && data) return data;
-    } catch(e) {}
-    return null;
-  },
-
-  salvarCheckpoint: async function(matricula, checkpointNum, cpData) {
-    if (!this.client || !matricula) return;
-    try {
-      this.updateBadge('syncing', 'Salvando checkpoint...');
-      await this.client.from('checkpoints_lideranca').upsert({
-        matricula: matricula,
-        checkpoint_num: checkpointNum,
-        resposta_lideranca: cpData.resp || '',
-        status: cpData.status || 'pendente',
-        gestor_nome: cpData.gestor || '',
-        data_validacao: cpData.data || ''
-      }, { onConflict: 'matricula,checkpoint_num' });
-      this.updateBadge('', '🟢 Supabase Nuvem');
-    } catch(e) {
-      this.updateBadge('offline', '🟡 Salvo Local');
-    }
-  },
-
-  carregarCheckpoints: async function(matricula) {
-    if (!this.client || !matricula) return [];
-    try {
-      const { data, error } = await this.client.from('checkpoints_lideranca').select('*').eq('matricula', matricula).order('checkpoint_num');
-      if (!error && data) return data;
-    } catch(e) {}
-    return [];
-  }
-};
-
-// Integração de hooks no AgoraApp
-AgoraApp.selectedLideradoMatricula = 'AEC-2026-88';
-
-AgoraApp.carregarListaInstrutoresGestor = async function(mostrarToastMsg) {
-  const select = document.getElementById('gestor-select-instrutor');
-  if (!select) return;
-
-  const instrutores = await window.AgoraSupabase.listarInstrutores();
-  if (instrutores && instrutores.length > 0) {
-    select.innerHTML = instrutores.map(inst => `
-      <option value="${inst.matricula}">${inst.nome} (${inst.matricula})</option>
-    `).join('');
-    
-    // Manter seleção ou selecionar o primeiro
-    if (this.selectedLideradoMatricula) {
-      select.value = this.selectedLideradoMatricula;
-    } else {
-      this.selectedLideradoMatricula = select.value;
-    }
-  }
-
-  await this.selecionarInstrutorGestor(select.value || this.selectedLideradoMatricula);
-  if (mostrarToastMsg) {
-    this.mostrarToast('☁️ Dados do Supabase sincronizados com sucesso!', '☁️');
-  }
-};
-
-AgoraApp.selecionarInstrutorGestor = async function(matricula) {
-  if (!matricula) return;
-  this.selectedLideradoMatricula = matricula;
-
-  // Carregar dados de usuário
-  const user = await window.AgoraSupabase.carregarUsuario(matricula);
-  if (user) {
-    const nomeEl = document.getElementById('gestor-part-nome');
-    const matEl = document.getElementById('gestor-part-mat');
-    const opEl = document.getElementById('gestor-part-op');
-    const gestEl = document.getElementById('gestor-part-gestor');
-    if (nomeEl) nomeEl.textContent = user.nome;
-    if (matEl) matEl.textContent = user.matricula;
-    if (opEl) opEl.textContent = user.operacao || 'Operações AeC';
-    if (gestEl) gestEl.textContent = user.gestor || 'Liderança Imediata';
-  }
-
-  // Carregar jornada da nuvem
-  const jornada = await window.AgoraSupabase.carregarJornada(matricula);
-  const progresso = jornada ? (jornada.progresso_geral || 0) : 0;
-  const kpiProg = document.getElementById('gestor-kpi-progresso');
-  if (kpiProg) kpiProg.textContent = progresso + '%';
-
-  const statusEl = document.getElementById('gestor-part-status');
-  if (statusEl) {
-    if (progresso >= 100) {
-      statusEl.className = 'checkpoint-tag concluido';
-      statusEl.textContent = 'Jornada Concluída';
-    } else if (progresso > 0) {
-      statusEl.className = 'checkpoint-tag em_analise';
-      statusEl.textContent = 'Em Andamento';
-    } else {
-      statusEl.className = 'checkpoint-tag pendente';
-      statusEl.textContent = 'Não Iniciada';
-    }
-  }
-
-  // Carregar missões práticas da nuvem
-  const missoes = await window.AgoraSupabase.carregarMissoes(matricula);
-  const totalMissoes = missoes ? (missoes.total_concluidas || 0) : 0;
-  const kpiMiss = document.getElementById('gestor-kpi-missoes');
-  if (kpiMiss) kpiMiss.textContent = totalMissoes + ' / 8';
-
-  // Carregar checkpoints da nuvem
-  const cps = await window.AgoraSupabase.carregarCheckpoints(matricula);
-  let validadosCount = 0;
-  for (let num = 1; num <= 3; num++) {
-    const cp = cps.find(c => c.checkpoint_num === num);
-    const gText = document.getElementById('g_cp' + num + '_text');
-    const badge = document.getElementById('g_cp' + num + '_badge');
-    if (cp) {
-      if (gText) gText.value = cp.resposta_lideranca || '';
-      if (badge) {
-        if (cp.status === 'concluido') {
-          validadosCount++;
-          badge.className = 'checkpoint-tag concluido';
-          badge.textContent = 'Validado';
-        } else {
-          badge.className = 'checkpoint-tag pendente';
-          badge.textContent = 'Pendente';
-        }
-      }
-    } else {
-      if (gText) gText.value = '';
-      if (badge) {
-        badge.className = 'checkpoint-tag pendente';
-        badge.textContent = 'Pendente';
-      }
-    }
-  }
-
-  const kpiCp = document.getElementById('gestor-kpi-checkpoints');
-  if (kpiCp) kpiCp.textContent = validadosCount + ' / 3';
-};
-
-// Hook no salvamento de checkpoints pelo gestor
-const _origSalvarCpGestor = AgoraApp.salvarCheckpointGestor;
-AgoraApp.salvarCheckpointGestor = function(num) {
-  _origSalvarCpGestor.call(this, num);
-  const mat = this.selectedLideradoMatricula || 'AEC-2026-88';
-  const resp = document.getElementById('g_cp' + num + '_text')?.value || '';
-  const cpData = { resp, status: 'concluido', gestor: this.currentUser?.nome || 'Gestor Imediato', data: new Date().toLocaleDateString('pt-BR') };
-  window.AgoraSupabase.salvarCheckpoint(mat, num, cpData);
-  // Recalcular contador de validados
-  setTimeout(() => this.selecionarInstrutorGestor(mat), 400);
-};
-
-// Hook no salvamento de checkpoints pelo participante
-const _origSalvarCp = AgoraApp.salvarCheckpoint;
-AgoraApp.salvarCheckpoint = function(num) {
-  _origSalvarCp.call(this, num);
-  const mat = this.currentUser?.matricula || 'AEC-2026-88';
-  const resp = document.getElementById('cp_resp_' + num)?.value || '';
-  const status = document.getElementById('cp_status_' + num)?.value || 'pendente';
-  const gestor = document.getElementById('cp_gestor_' + num)?.value || '';
-  const cpData = { resp, status, gestor, data: new Date().toLocaleDateString('pt-BR') };
-  window.AgoraSupabase.salvarCheckpoint(mat, num, cpData);
-};
-
-// Hook no salvamento de missões
-const _origSalvarMissoes = AgoraApp.salvarMissoes;
-AgoraApp.salvarMissoes = function() {
-  _origSalvarMissoes.call(this);
-  if (this.currentUser && this.currentUser.matricula && window.AgoraSupabase) {
-    const raw = localStorage.getItem('agora_missoes_praticas');
-    if (raw) {
-      try {
-        window.AgoraSupabase.salvarMissoes(this.currentUser.matricula, JSON.parse(raw));
-      } catch(e) {}
-    }
-  }
-};
-
-// Hook no salvamento do cadastro
-const _origSalvarCadastro = AgoraApp.salvarCadastroInicial;
-AgoraApp.salvarCadastroInicial = function() {
-  _origSalvarCadastro.call(this);
-  if (this.currentUser && window.AgoraSupabase) {
-    window.AgoraSupabase.salvarUsuario(this.currentUser);
-    window.AgoraSupabase.salvarJornada(this.currentUser.matricula, this.state);
-  }
-};
-
-// Debounce para salvamento de jornada no Supabase
-let _debounceSupabaseTimer = null;
-const _origSaveState = AgoraApp.saveState;
-AgoraApp.saveState = function() {
-  _origSaveState.call(this);
-  if (this.currentUser && this.currentUser.matricula && window.AgoraSupabase) {
-    clearTimeout(_debounceSupabaseTimer);
-    _debounceSupabaseTimer = setTimeout(() => {
-      window.AgoraSupabase.salvarJornada(this.currentUser.matricula, this.state);
-    }, 1200);
-  }
-};
-
-// Inicializar Supabase após carga da página
-window.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-    window.AgoraSupabase.init();
-    if (AgoraApp.currentUser && AgoraApp.currentUser.perfil === 'gestor') {
-      AgoraApp.carregarListaInstrutoresGestor(false);
-    }
-  }, 350);
-});
 
 </script>
 
