@@ -2593,6 +2593,144 @@ body.theme-dark .gestor-card-section {
   filter: grayscale(0.8);
 }
 
+
+/* ==========================================================================
+   POPUP CARTA CONVITE ÁGORA (ABRE APÓS O LOGIN COMO UMA CARTA)
+   ========================================================================== */
+.carta-convite-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(3, 25, 44, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  animation: fadeInCarta 0.35s ease forwards;
+}
+
+.carta-convite-overlay.closing {
+  animation: fadeOutCarta 0.35s ease forwards;
+}
+
+@keyframes fadeInCarta {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutCarta {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.94); }
+}
+
+.carta-envelope-wrapper {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  perspective: 1400px;
+  margin: auto;
+}
+
+.carta-close-btn {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #08B7BC;
+  color: #053D68;
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.carta-close-btn:hover {
+  transform: scale(1.12) rotate(90deg);
+  background: #08B7BC;
+  color: #FFFFFF;
+}
+
+/* Animação da Carta se Abrindo */
+.carta-conteudo-card {
+  transform-origin: center top;
+  animation: cartaSeAbrindo 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cartaSeAbrindo {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.85) rotateX(18deg);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.02) rotateX(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.popup-version {
+  margin-bottom: 0 !important;
+  box-shadow: 0 24px 60px rgba(2, 22, 40, 0.55) !important;
+  border: 2px solid rgba(8, 183, 188, 0.4) !important;
+}
+
+.wax-seal-btn.seal-pulse {
+  animation: sealPulseLoop 2.2s infinite ease-in-out;
+}
+
+@keyframes sealPulseLoop {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 12px 28px rgba(5, 61, 104, 0.45),
+      inset 0 3px 8px rgba(255, 255, 255, 0.35),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow:
+      0 18px 40px rgba(8, 183, 188, 0.6),
+      0 0 0 12px rgba(8, 183, 188, 0.15),
+      inset 0 3px 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.seal-cta-hint {
+  font-size: 0.8rem;
+  color: var(--agora-turquoise);
+  font-weight: 700;
+  margin-top: 0.55rem;
+  background: rgba(8, 183, 188, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 183, 188, 0.25);
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seal-cta-hint:hover {
+  background: var(--agora-turquoise);
+  color: #032541;
+}
+
 </style>
 <style>
 
@@ -2990,6 +3128,144 @@ body.theme-dark .gestor-card-section {
   filter: grayscale(0.8);
 }
 
+
+/* ==========================================================================
+   POPUP CARTA CONVITE ÁGORA (ABRE APÓS O LOGIN COMO UMA CARTA)
+   ========================================================================== */
+.carta-convite-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(3, 25, 44, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  animation: fadeInCarta 0.35s ease forwards;
+}
+
+.carta-convite-overlay.closing {
+  animation: fadeOutCarta 0.35s ease forwards;
+}
+
+@keyframes fadeInCarta {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutCarta {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.94); }
+}
+
+.carta-envelope-wrapper {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  perspective: 1400px;
+  margin: auto;
+}
+
+.carta-close-btn {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #08B7BC;
+  color: #053D68;
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.carta-close-btn:hover {
+  transform: scale(1.12) rotate(90deg);
+  background: #08B7BC;
+  color: #FFFFFF;
+}
+
+/* Animação da Carta se Abrindo */
+.carta-conteudo-card {
+  transform-origin: center top;
+  animation: cartaSeAbrindo 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cartaSeAbrindo {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.85) rotateX(18deg);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.02) rotateX(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.popup-version {
+  margin-bottom: 0 !important;
+  box-shadow: 0 24px 60px rgba(2, 22, 40, 0.55) !important;
+  border: 2px solid rgba(8, 183, 188, 0.4) !important;
+}
+
+.wax-seal-btn.seal-pulse {
+  animation: sealPulseLoop 2.2s infinite ease-in-out;
+}
+
+@keyframes sealPulseLoop {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 12px 28px rgba(5, 61, 104, 0.45),
+      inset 0 3px 8px rgba(255, 255, 255, 0.35),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow:
+      0 18px 40px rgba(8, 183, 188, 0.6),
+      0 0 0 12px rgba(8, 183, 188, 0.15),
+      inset 0 3px 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.seal-cta-hint {
+  font-size: 0.8rem;
+  color: var(--agora-turquoise);
+  font-weight: 700;
+  margin-top: 0.55rem;
+  background: rgba(8, 183, 188, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 183, 188, 0.25);
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seal-cta-hint:hover {
+  background: var(--agora-turquoise);
+  color: #032541;
+}
+
 </style>
 <style>
 
@@ -3263,6 +3539,144 @@ body.theme-dark .gestor-card-section {
   filter: grayscale(0.8);
 }
 
+
+/* ==========================================================================
+   POPUP CARTA CONVITE ÁGORA (ABRE APÓS O LOGIN COMO UMA CARTA)
+   ========================================================================== */
+.carta-convite-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(3, 25, 44, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  animation: fadeInCarta 0.35s ease forwards;
+}
+
+.carta-convite-overlay.closing {
+  animation: fadeOutCarta 0.35s ease forwards;
+}
+
+@keyframes fadeInCarta {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutCarta {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.94); }
+}
+
+.carta-envelope-wrapper {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+  perspective: 1400px;
+  margin: auto;
+}
+
+.carta-close-btn {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #08B7BC;
+  color: #053D68;
+  font-size: 1.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.carta-close-btn:hover {
+  transform: scale(1.12) rotate(90deg);
+  background: #08B7BC;
+  color: #FFFFFF;
+}
+
+/* Animação da Carta se Abrindo */
+.carta-conteudo-card {
+  transform-origin: center top;
+  animation: cartaSeAbrindo 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cartaSeAbrindo {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.85) rotateX(18deg);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.02) rotateX(-3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.popup-version {
+  margin-bottom: 0 !important;
+  box-shadow: 0 24px 60px rgba(2, 22, 40, 0.55) !important;
+  border: 2px solid rgba(8, 183, 188, 0.4) !important;
+}
+
+.wax-seal-btn.seal-pulse {
+  animation: sealPulseLoop 2.2s infinite ease-in-out;
+}
+
+@keyframes sealPulseLoop {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 12px 28px rgba(5, 61, 104, 0.45),
+      inset 0 3px 8px rgba(255, 255, 255, 0.35),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow:
+      0 18px 40px rgba(8, 183, 188, 0.6),
+      0 0 0 12px rgba(8, 183, 188, 0.15),
+      inset 0 3px 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.seal-cta-hint {
+  font-size: 0.8rem;
+  color: var(--agora-turquoise);
+  font-weight: 700;
+  margin-top: 0.55rem;
+  background: rgba(8, 183, 188, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 183, 188, 0.25);
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seal-cta-hint:hover {
+  background: var(--agora-turquoise);
+  color: #032541;
+}
+
 </style>
 <style>
 
@@ -3380,6 +3794,81 @@ body.theme-dark .gestor-card-section {
   </div>
 </div>
 
+
+  
+  <!-- ========================================================================
+       POPUP CARTA CONVITE: ABRE APÓS LOGIN COM ANIMAÇÃO DE CARTA SE ABRINDO
+       ======================================================================== -->
+  <div id="carta-convite-overlay" class="carta-convite-overlay" style="display: none;">
+    <div class="carta-envelope-wrapper">
+      <button type="button" class="carta-close-btn" onclick="AgoraApp.fecharCartaConvite(true)" title="Fechar e ir para o Início">✕</button>
+
+      <div class="carta-conteudo-card">
+        <div class="invite-showcase popup-version">
+          <div class="invite-card-inner">
+            <div>
+              <div class="agora-signature-track" style="margin-bottom:0.4rem;">
+                JORNADA DE DESENVOLVIMENTO DE INSTRUTORES
+              </div>
+              <h2 class="invite-headline">
+                Você é nosso<br />
+                <strong>convidado</strong>
+                <span>especial!</span>
+              </h2>
+              <div class="turquoise-rule"></div>
+              <p style="font-size:1.05rem;font-weight:600;color:var(--agora-deep);margin-bottom:0.55rem;">
+                Vamos juntos iniciar uma jornada de evolução, aprendizado e novas possibilidades.
+              </p>
+              <p style="font-size:0.92rem;color:var(--agora-text-muted);">
+                Será um momento para trocar experiências, fortalecer conexões e construir, juntos, novos caminhos. Personalize abaixo os dados da sua turma/encontro e clique no <strong>Selo Ágora</strong> para entrar na plataforma:
+              </p>
+
+              <div class="invite-meta-bar">
+                <div class="invite-meta-item">
+                  <div class="invite-meta-icon">📅</div>
+                  <div style="width:100%;">
+                    <div class="invite-meta-label">DATA</div>
+                    <input type="text" class="invite-meta-input" data-invite="date" placeholder="Ex: Encontro 01 • Ciclo 2026" />
+                  </div>
+                </div>
+                <div class="invite-meta-item">
+                  <div class="invite-meta-icon">🕒</div>
+                  <div style="width:100%;">
+                    <div class="invite-meta-label">HORÁRIO</div>
+                    <input type="text" class="invite-meta-input" data-invite="time" placeholder="Ex: 08h30 às 13h30 (5h)" />
+                  </div>
+                </div>
+                <div class="invite-meta-item">
+                  <div class="invite-meta-icon">📍</div>
+                  <div style="width:100%;">
+                    <div class="invite-meta-label">LOCAL</div>
+                    <input type="text" class="invite-meta-input" data-invite="location" placeholder="Ex: Espaço Ágora • Sala de Desenvolvimento" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selo de Cera Azul Profundo Interativo (Ao clicar, vai para o Início!) -->
+            <div class="wax-seal-col">
+              <button type="button" class="wax-seal-btn seal-pulse" onclick="AgoraApp.clicarLogoCartaConvite()" title="Clique no Selo Ágora para acessar o Início">
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="26" cy="22" r="7" fill="#258FC0"/>
+                  <circle cx="44" cy="22" r="7" fill="#08B7BC"/>
+                  <path d="M15 52V37C15 31 20 28 26 28C30 28 33 30 35 34C37 30 40 28 44 28C50 28 55 31 55 37V52H46V38C46 36 44 36 35 43C26 36 24 36 24 38V52H15Z" fill="#C7E8F7"/>
+                </svg>
+              </button>
+              <div class="script-signature">
+                Sua presença<br />faz parte dessa<br />história. ♡
+              </div>
+              <span class="seal-cta-hint" onclick="AgoraApp.clicarLogoCartaConvite()">
+                👆 Clique no selo para iniciar a jornada
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Barra Cromática Oficial Brand Kit ÁGORA (Pág. 06) -->
   <div class="agora-color-bar" aria-hidden="true">
@@ -8576,6 +9065,68 @@ AgoraApp.abrirModalCadastro = function() {
   if (overlay) overlay.style.display = 'flex';
 };
 
+
+// ==========================================================================
+// CONTROLE DA CARTA CONVITE (ABERTURA COM ANIMAÇÃO & REDIRECIONAMENTO AO INÍCIO)
+// ==========================================================================
+AgoraApp.abrirCartaConvite = function() {
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (!overlay) return;
+
+  // Sincronizar inputs da carta com o state atual
+  if (this.state && this.state.invite) {
+    overlay.querySelectorAll('[data-invite]').forEach(input => {
+      const k = input.getAttribute('data-invite');
+      if (this.state.invite[k]) {
+        input.value = this.state.invite[k];
+      }
+    });
+  }
+
+  overlay.style.display = 'flex';
+  overlay.classList.remove('closing');
+};
+
+AgoraApp.fecharCartaConvite = function(irParaInicio) {
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (overlay) {
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      overlay.classList.remove('closing');
+      if (irParaInicio) {
+        this.switchView('view-inicio');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 320);
+  }
+};
+
+AgoraApp.clicarLogoCartaConvite = function() {
+  // Salvar quaisquer alterações feitas nos inputs do convite
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (overlay) {
+    overlay.querySelectorAll('[data-invite]').forEach(input => {
+      const k = input.getAttribute('data-invite');
+      if (k && this.state && this.state.invite) {
+        this.state.invite[k] = input.value;
+      }
+    });
+    if (this.saveState) this.saveState();
+  }
+
+  // Efeito interativo no botão do selo
+  const sealBtn = overlay ? overlay.querySelector('.wax-seal-btn') : null;
+  if (sealBtn) {
+    sealBtn.style.transform = 'scale(0.92)';
+  }
+
+  setTimeout(() => {
+    this.fecharCartaConvite(true);
+    this.mostrarToast('🏛️ Bem-vindo(a) à Jornada ÁGORA!', '✨');
+  }, 180);
+};
+
 AgoraApp.abrirTrocaPerfil = function() {
   if (this.currentUser) {
     document.getElementById('auth-nome').value = this.currentUser.nome || '';
@@ -9750,17 +10301,16 @@ AgoraApp.salvarCadastroInicial = async function() {
     // Fechar modal de autenticação
     document.getElementById('auth-overlay').style.display = 'none';
 
-    // Aplicar regras de interface e redirecionar
+    // Aplicar regras de interface
     this.aplicarPerfil(this.currentUser.perfil);
     this.atualizarBarraUsuario();
 
+    // ABRIR POPUP DA CARTA CONVITE COM ANIMAÇÃO DE CARTA SE ABRINDO
+    this.switchView('view-inicio');
+    this.abrirCartaConvite();
+
     if (this.currentUser.perfil === 'gestor') {
-      this.switchView('view-gestor');
       this.carregarListaInstrutoresGestor(false);
-    } else if (this.currentUser.perfil === 'facilitador') {
-      this.switchView('view-facilitador');
-    } else {
-      this.switchView('view-inicio');
     }
 
     this.mostrarToast('✨ Bem-vindo(a), ' + this.currentUser.nome + '! Acesso verificado via Nuvem Ágora.', '🏛️');
@@ -9777,6 +10327,68 @@ AgoraApp.salvarCadastroInicial = async function() {
 };
 
 // Logout e Troca de Acesso Limpo
+
+// ==========================================================================
+// CONTROLE DA CARTA CONVITE (ABERTURA COM ANIMAÇÃO & REDIRECIONAMENTO AO INÍCIO)
+// ==========================================================================
+AgoraApp.abrirCartaConvite = function() {
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (!overlay) return;
+
+  // Sincronizar inputs da carta com o state atual
+  if (this.state && this.state.invite) {
+    overlay.querySelectorAll('[data-invite]').forEach(input => {
+      const k = input.getAttribute('data-invite');
+      if (this.state.invite[k]) {
+        input.value = this.state.invite[k];
+      }
+    });
+  }
+
+  overlay.style.display = 'flex';
+  overlay.classList.remove('closing');
+};
+
+AgoraApp.fecharCartaConvite = function(irParaInicio) {
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (overlay) {
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      overlay.classList.remove('closing');
+      if (irParaInicio) {
+        this.switchView('view-inicio');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 320);
+  }
+};
+
+AgoraApp.clicarLogoCartaConvite = function() {
+  // Salvar quaisquer alterações feitas nos inputs do convite
+  const overlay = document.getElementById('carta-convite-overlay');
+  if (overlay) {
+    overlay.querySelectorAll('[data-invite]').forEach(input => {
+      const k = input.getAttribute('data-invite');
+      if (k && this.state && this.state.invite) {
+        this.state.invite[k] = input.value;
+      }
+    });
+    if (this.saveState) this.saveState();
+  }
+
+  // Efeito interativo no botão do selo
+  const sealBtn = overlay ? overlay.querySelector('.wax-seal-btn') : null;
+  if (sealBtn) {
+    sealBtn.style.transform = 'scale(0.92)';
+  }
+
+  setTimeout(() => {
+    this.fecharCartaConvite(true);
+    this.mostrarToast('🏛️ Bem-vindo(a) à Jornada ÁGORA!', '✨');
+  }, 180);
+};
+
 AgoraApp.abrirTrocaPerfil = function() {
   if (confirm('Deseja realmente sair da sessão atual?')) {
     localStorage.removeItem('agora_usuario_ativo');
