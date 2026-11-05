@@ -862,6 +862,89 @@ body.theme-dark .invite-card-inner {
 .badge-b2 { background: #CCFBF1; color: #0F766E; border: 1px solid #99F6E4; }
 .badge-b3 { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
 
+/* ==========================================================================
+   MATRIZ OFICIAL: EFEITO FOSCO & CADEADO (BLOCOS 02 E 03)
+   ========================================================================== */
+.matrix-locked-row {
+  background: rgba(248, 250, 252, 0.75) !important;
+}
+
+.matrix-locked-row:hover {
+  background: rgba(241, 245, 249, 0.95) !important;
+}
+
+.matrix-locked-cell {
+  position: relative !important;
+  overflow: hidden !important;
+  vertical-align: middle !important;
+  min-height: 52px;
+}
+
+.matrix-blur-text {
+  filter: blur(5.5px) !important;
+  -webkit-filter: blur(5.5px) !important;
+  opacity: 0.22 !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  pointer-events: none !important;
+  transition: all 0.25s ease;
+}
+
+.matrix-lock-chip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(8, 183, 188, 0.35);
+  box-shadow: 0 2px 8px rgba(5, 61, 104, 0.08);
+  color: #053D68;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+.matrix-lock-chip.highlight {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 253, 250, 0.96));
+  border: 1.5px solid #08B7BC;
+  color: #032541;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  box-shadow: 0 4px 14px rgba(8, 183, 188, 0.22);
+}
+
+.matrix-lock-chip .lock-emoji {
+  font-size: 0.85rem;
+}
+
+body.theme-dark .matrix-locked-row {
+  background: rgba(15, 23, 42, 0.5) !important;
+}
+
+body.theme-dark .matrix-lock-chip {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(8, 183, 188, 0.4);
+  color: #C7E8F7;
+}
+
+body.theme-dark .matrix-lock-chip.highlight {
+  background: linear-gradient(135deg, rgba(5, 61, 104, 0.95), rgba(8, 183, 188, 0.25));
+  border-color: #08B7BC;
+  color: #FFFFFF;
+}
+
+
 /* 4. TRILHA DO CICLO DE 3 MESES (3 BLOCOS COM CADEADO QUE VÃO DESTRAVANDO) */
 .cycle-header-banner {
   background: linear-gradient(135deg, var(--agora-deep) 0%, var(--agora-blue) 100%);
@@ -3599,7 +3682,144 @@ body.theme-dark .gestor-card-section {
               </tr>
             </thead>
             <tbody id="matrix-5axes-tbody">
-              <!-- Preenchido via JS (data-agora.js) -->
+              <!-- Bloco 01 • Mês 1: 100% à mostra e legível -->
+              <tr>
+                <td>
+                  <span class="matrix-block-badge badge-b1">Bloco 01 • Mês 1</span>
+                  <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">1. Identidades e Conexões</div>
+                </td>
+                <td>Conhecer trajetórias, interesses e expectativas.</td>
+                <td><strong>Passaporte profissional e mapa de interesses.</strong><br><small style="color:var(--agora-text-muted);">Págs. 02 a 06 (Boas-vindas, Passaporte Ágora, Sabedoria da Experiência, Saindo da Caverna e Perfil DISC)</small></td>
+                <td>Facilitador do projeto e profissional de desenvolvimento.</td>
+              </tr>
+
+              <!-- Bloco 02 • Mês 2: Eixo 2 fosco com cadeado -->
+              <tr class="matrix-locked-row">
+                <td>
+                  <span class="matrix-block-badge badge-b2">Bloco 02 • Mês 2</span>
+                  <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">2. Possibilidades e Caminhos</div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Apresentar áreas e suas atividades.</div>
+                  <div class="matrix-lock-chip" title="Objetivo com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">
+                    <strong>Rodas de conversa e escolha de uma área para explorar.</strong><br>
+                    <small style="color:var(--agora-text-muted);">Págs. 07 e 08 (Raio-X de Competências e Quem Inspira a Minha Jornada?)</small>
+                  </div>
+                  <div class="matrix-lock-chip highlight" title="Atividade prática com cadeado ativo">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Cadeado Ativo • Mês 02</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Representantes das áreas participantes.</div>
+                  <div class="matrix-lock-chip" title="Quem pode contribuir com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Bloco 02 • Mês 2: Eixo 3 fosco com cadeado -->
+              <tr class="matrix-locked-row">
+                <td>
+                  <span class="matrix-block-badge badge-b2">Bloco 02 • Mês 2</span>
+                  <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">3. Habilidades em Ação</div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Trabalhar temas de aprendizagem escolhidos pelos participantes.</div>
+                  <div class="matrix-lock-chip" title="Objetivo com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">
+                    <strong>Oficinas, simulações e resolução de situações fictícias.</strong><br>
+                    <small style="color:var(--agora-text-muted);">Aplicação Prática de Sala, Laboratório de Facilitação e Estudo de Caso</small>
+                  </div>
+                  <div class="matrix-lock-chip highlight" title="Atividade prática com cadeado ativo">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Cadeado Ativo • Mês 02</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Profissionais com experiência nos temas.</div>
+                  <div class="matrix-lock-chip" title="Quem pode contribuir com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Bloco 03 • Mês 3: Eixo 4 fosco com cadeado -->
+              <tr class="matrix-locked-row">
+                <td>
+                  <span class="matrix-block-badge badge-b3">Bloco 03 • Mês 3</span>
+                  <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">4. Vivências e Conexões</div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Aproximar os participantes da realidade de outras atividades.</div>
+                  <div class="matrix-lock-chip" title="Objetivo com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">
+                    <strong>Visitas, observação de rotinas e desafios orientados, mediante autorização.</strong><br>
+                    <small style="color:var(--agora-text-muted);">Pág. 09 + Etapa 09 Manual (Networking, Presença Profissional, LinkedIn e Marca Profissional)</small>
+                  </div>
+                  <div class="matrix-lock-chip highlight" title="Atividade prática com cadeado ativo">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Cadeado Ativo • Mês 03</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Profissionais anfitriões e mentores voluntários.</div>
+                  <div class="matrix-lock-chip" title="Quem pode contribuir com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Bloco 03 • Mês 3: Eixo 5 fosco com cadeado -->
+              <tr class="matrix-locked-row">
+                <td>
+                  <span class="matrix-block-badge badge-b3">Bloco 03 • Mês 3</span>
+                  <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">5. Meu Próximo Passo</div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Organizar a continuidade do desenvolvimento.</div>
+                  <div class="matrix-lock-chip" title="Objetivo com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">
+                    <strong>Plano individual com objetivo, ação, apoio e prazo.</strong><br>
+                    <small style="color:var(--agora-text-muted);">Págs. 10 a 13 (PDI ÁGORA SMART, Carta para o Meu Eu do Futuro, Anotações e Cartão de Saída)</small>
+                  </div>
+                  <div class="matrix-lock-chip highlight" title="Atividade prática com cadeado ativo">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Cadeado Ativo • Mês 03</span>
+                  </div>
+                </td>
+                <td class="matrix-locked-cell">
+                  <div class="matrix-blur-text">Facilitador e profissionais de apoio.</div>
+                  <div class="matrix-lock-chip" title="Quem pode contribuir com cadeado">
+                    <span class="lock-emoji">🔒</span>
+                    <span class="lock-txt">Bloqueado</span>
+                  </div>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -7217,13 +7437,22 @@ window.AgoraApp = {
   /**
    * Renderiza elementos dinâmicos (Tabela de 5 Eixos, Chips de Interesse, Raio-X, Presença, LinkedIn, Facilitador)
    */
-  renderDynamicLists: function () {
-    // 1. Tabela Matriz dos 5 Eixos
+    /**
+   * Renderiza a Tabela Matriz dos 5 Eixos
+   * Regra: Bloco 01 - Mês 1 fica 100% à mostra. Os demais (Blocos 02 e 03)
+   * mantêm os nomes de Bloco & Eixo visíveis, enquanto Objetivo, Atividade Prática
+   * e Quem pode contribuir ficam foscos (blur) e com cadeado ativo.
+   */
+  renderMatrixTable: function () {
     const tbody = document.getElementById("matrix-5axes-tbody");
-    if (tbody) {
-      tbody.innerHTML = window.AGORA_DATA.matrixAxes
-        .map((row) => {
-          const badgeClass = `badge-b${row.blocoId}`;
+    if (!tbody || !window.AGORA_DATA || !window.AGORA_DATA.matrixAxes) return;
+
+    tbody.innerHTML = window.AGORA_DATA.matrixAxes
+      .map((row) => {
+        const badgeClass = `badge-b${row.blocoId}`;
+        const isBloco1 = row.blocoId === 1;
+
+        if (isBloco1) {
           return `
             <tr>
               <td>
@@ -7235,9 +7464,48 @@ window.AgoraApp = {
               <td>${row.quemContribui}</td>
             </tr>
           `;
-        })
-        .join("");
-    }
+        } else {
+          const mesNum = row.blocoId === 2 ? '02' : '03';
+          return `
+            <tr class="matrix-locked-row">
+              <td>
+                <span class="matrix-block-badge ${badgeClass}">${row.blocoLabel}</span>
+                <div style="font-weight:800;color:var(--agora-deep);font-size:0.96rem;">${row.title}</div>
+              </td>
+              <td class="matrix-locked-cell">
+                <div class="matrix-blur-text">${row.objetivo}</div>
+                <div class="matrix-lock-chip" title="Objetivo bloqueado com cadeado">
+                  <span class="lock-emoji">🔒</span>
+                  <span class="lock-txt">Bloqueado</span>
+                </div>
+              </td>
+              <td class="matrix-locked-cell">
+                <div class="matrix-blur-text">
+                  <strong>${row.atividadePratica}</strong><br>
+                  <small style="color:var(--agora-text-muted);">${row.workbookPages}</small>
+                </div>
+                <div class="matrix-lock-chip highlight" title="Atividade prática com cadeado ativo">
+                  <span class="lock-emoji">🔒</span>
+                  <span class="lock-txt">Cadeado Ativo • Mês ${mesNum}</span>
+                </div>
+              </td>
+              <td class="matrix-locked-cell">
+                <div class="matrix-blur-text">${row.quemContribui}</div>
+                <div class="matrix-lock-chip" title="Quem pode contribuir com cadeado">
+                  <span class="lock-emoji">🔒</span>
+                  <span class="lock-txt">Bloqueado</span>
+                </div>
+              </td>
+            </tr>
+          `;
+        }
+      })
+      .join("");
+  },
+
+  renderDynamicLists: function () {
+    // 1. Tabela Matriz dos 5 Eixos (Bloco 01 à mostra, demais foscos com cadeado)
+    this.renderMatrixTable();
 
     // 2. Chips do Mapa de Interesses (Bloco 01)
     const chipsContainer = document.getElementById("interest-chips-container");
