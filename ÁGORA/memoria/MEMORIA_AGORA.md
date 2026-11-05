@@ -78,8 +78,8 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 
 ## 5. Estado Atual e Validação
 
-* ✅ **Arquivo Principal:** `index.html` (~406 KB com integração Supabase e fallback offline).
-* ✅ **Equilíbrio de Tags:** DIVs (702/702, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
+* ✅ **Arquivo Principal:** `index.html` (~440 KB com integração Supabase, motor de slides, trilha animada e fallback offline).
+* ✅ **Equilíbrio de Tags:** DIVs (847/847, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
 * ✅ **Unicidade de Matrícula/E-mail e Perfil Fixo:** Impede escalação de privilégios ou duplicidade de papéis com os mesmos dados cadastrais.
 * ✅ **Sincronização Bidirecional:** Salva e carrega dados em tempo real no Supabase em todas as três áreas (Instrutor, Gestor e Facilitador).
 * ✅ **Seletor de Instrutores no Portal do Gestor:** Permite à liderança selecionar qualquer instrutor cadastrado no Supabase e auditar seus dados e checkpoints em tempo real.
@@ -104,18 +104,19 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 
 ---
 
-## 8. Aprendizados [05/11/2026]
+## 8. Aprendizados & Evoluções Arquiteturais [05/11/2026]
 
-- **Trilha Gamificada e Micro-Animações Temáticas nas Estações:** Para transformar o workbook longo em uma experiência envolvente e intuitiva, substituímos os submenus estáticos por uma trilha de progresso visual interativa (.trilha-roadmap-container). Cada estação possui ícones com micro-animações CSS exclusivas que refletem sua proposta pedagógica:
-  - 🛂 **Passaporte Ágora & Interesses:** Animação de flutuação e inclinação (nimPassaporte).
-  - 🏆 **Sabedoria da Experiência:** Pulsação dourada com brilho áureo (nimSabedoria).
-  - 🕯️ **Saindo da Caverna:** Chama tremeluzente da tocha e expansão da luz (nimCaverna).
-  - 🧭 **Perfil Comportamental DISC:** Bússola com rotação oscilante suave (nimDisc).
-  - 🎯 **Missões Práticas:** Alvo pulsante com resplendor em turquesa Ágora (nimMissoes).
-  - 📌 **Checkpoint da Liderança #1:** Marcador âncora com efeito de salto e fixação (nimCheckpoint).
-- **Navegação em Slides / Stepper Viewport:** A rolagem vertical excessiva em formulários extensos causa sobrecarga cognitiva e fadiga no participante. Com o motor de slides (AgoraApp.irParaEtapaSlide), cada etapa é exibida individualmente com transição lateral suave (slideFadeIn), dotada de barra de navegação inferior (slide-nav-bar) com botão de retorno, indicador percentual de avanço e botão de avanço contextual.
-- **Alternador de Modo de Leitura (Slides vs. Ver Tudo):** Disponibilizamos o seletor 	rilha-view-mode-toggle que permite ao usuário escolher entre a navegação focada em slides (🎯 Modo Slides) ou a visão vertical completa (📜 Modo Contínuo), respeitando preferências individuais de estudo e consulta rápida.
-- **Integridade Estrutural na Injeção DOM:** Ao empacotar seções preexistentes em contêineres de slides, a barra de navegação de cada etapa deve ser injetada no encerramento natural da própria seção antes de seu </div>, mantendo o balanço matemático exato de tags HTML (820 abertas / 820 fechadas, diff=0) e evitando quebras de layout.
+- **Trilha Gamificada e Micro-Animações Temáticas nas Estações:** Para transformar o workbook longo em uma experiência envolvente e intuitiva, substituímos os submenus estáticos por uma trilha de progresso visual interativa (`.trilha-roadmap-container`). Cada estação possui ícones com micro-animações CSS exclusivas que refletem sua proposta pedagógica:
+  - 🛂 **Passaporte Ágora & Interesses:** Animação de flutuação e inclinação (`animPassaporte`).
+  - 🏆 **Sabedoria da Experiência:** Pulsação dourada com brilho áureo (`animSabedoria`).
+  - 🕯️ **Saindo da Caverna:** Chama tremeluzente da tocha e expansão da luz (`animCaverna`).
+  - 🧭 **Perfil Comportamental DISC:** Bússola com rotação oscilante suave (`animDisc`).
+  - 🎯 **Missões Práticas:** Alvo pulsante com resplendor em turquesa Ágora (`animMissoes`).
+  - 📌 **Checkpoint da Liderança #1:** Marcador âncora com efeito de salto e fixação (`animCheckpoint`).
+
+- **Navegação em Slides / Stepper Viewport:** A rolagem vertical excessiva em formulários extensos causa sobrecarga cognitiva e fadiga no participante. Com o motor de slides (`AgoraApp.irParaEtapaSlide`), cada etapa é exibida individualmente com transição lateral suave (`slideFadeIn`), dotada de barra de navegação inferior (`slide-nav-bar`) com botão de retorno, indicador percentual de avanço e botão de avanço contextual.
+
+- **Alternador de Modo de Leitura (Slides vs. Ver Tudo):** Disponibilizamos o seletor `.trilha-view-mode-toggle` que permite ao usuário escolher entre a navegação focada em slides (`🎯 Modo Slides`) ou a visão vertical completa (`📜 Modo Contínuo`), respeitando preferências individuais de estudo e consulta rápida.
 
 - **Efeito Fosco e Cadeado nos Cards Superiores dos Blocos 02 e 03:** Além da tabela da Matriz Oficial, os cards superiores de visão geral dos blocos (`.block-padlock-card.locked`) agora ocultam seus conteúdos internos (`block-card-desc` e `block-axes-list`) através de desfoque por vidro fosco (`filter: blur(5.5px); opacity: 0.20; pointer-events: none;`). Um badge centralizado animado em vidro translúcido (`.locked-frosted-badge`) exibe o cadeado pulsante com a mensagem contextual de desbloqueio (`Libera após conclusão do Bloco 01` / `02`), mantendo legíveis apenas os títulos e pílulas de mês, preservando o suspense pedagógico da jornada até o envio formal do Forms anterior.
 
@@ -125,3 +126,5 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
   3. *Mapa de Interesses Profissionais & Expectativas:* Exibidos em largura total ampla e fluida, permitindo que a nuvem de tags de interesses respire sem aperto.
 
 - **Integração do QR Code Real do Teste Comportamental OneMind:** Na Etapa 1.4 do Workbook (Perfil Comportamental DISC), a coluna esquerda apresentava um vazio vertical entre a síntese do perfil selecionado e as 5 perguntas reflexivas. Inserimos o card oficial `.teste-comportamental-card` com o título **"Teste Comportamental"**, contendo um QR Code SVG real e escaneável direcionando para `https://onemind.com.br/ferramentas/teste-perfil-comportamental/`, instruções passo a passo para o instrutor e botão direto com link externo, preenchendo o espaço em branco com total harmonia e proporcionalidade em relação ao simulador de sala.
+
+- **Integridade Estrutural na Injeção DOM:** Ao empacotar seções preexistentes em contêineres de slides, a barra de navegação de cada etapa deve ser injetada no encerramento natural da própria seção antes de seu `</div>`, mantendo o balanço matemático exato de tags HTML (847 abertas / 847 fechadas, diff=0) e prevenindo regressões de layout em cascata.
