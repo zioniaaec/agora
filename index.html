@@ -1049,6 +1049,106 @@ body.theme-dark .matrix-lock-chip.highlight {
   opacity: 0.88;
 }
 
+/* ==========================================================================
+   EFEITO FOSCO & CADEADO EM CARDS DE BLOCOS BLOQUEADOS
+   ========================================================================== */
+.block-card-body-wrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.block-padlock-card.locked .block-card-body-wrap {
+  min-height: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-padlock-card.locked .block-card-body-content {
+  filter: blur(5.5px);
+  opacity: 0.20;
+  user-select: none;
+  pointer-events: none;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.block-card-locked-overlay {
+  display: none;
+}
+
+.block-padlock-card.locked .block-card-locked-overlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: var(--radius-lg);
+  z-index: 5;
+  pointer-events: none;
+}
+
+body.theme-dark .block-padlock-card.locked .block-card-locked-overlay {
+  background: rgba(4, 30, 52, 0.45);
+}
+
+.locked-frosted-badge {
+  background: rgba(3, 37, 65, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(8, 183, 188, 0.55);
+  box-shadow: 0 10px 28px rgba(3, 37, 65, 0.35), 0 0 18px rgba(8, 183, 188, 0.25);
+  border-radius: var(--radius-pill);
+  padding: 0.7rem 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #FFFFFF;
+  text-align: left;
+  animation: lockedBadgePulse 2.8s ease-in-out infinite;
+}
+
+.locked-frosted-badge .locked-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.locked-frosted-badge .locked-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.locked-frosted-badge .locked-info strong {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+.locked-frosted-badge .locked-info span {
+  font-size: 0.70rem;
+  color: #93C5FD;
+  font-weight: 600;
+}
+
+@keyframes lockedBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 28px rgba(3, 37, 65, 0.35), 0 0 18px rgba(8, 183, 188, 0.25);
+  }
+  50% {
+    transform: scale(1.035);
+    box-shadow: 0 14px 34px rgba(3, 37, 65, 0.45), 0 0 24px rgba(8, 183, 188, 0.5);
+  }
+}
+
+
 .block-card-top {
   display: flex;
   align-items: center;
@@ -4786,15 +4886,28 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
               <div id="trail-icon-b1" class="padlock-icon-badge" title="Status do Cadeado">🔓</div>
             </div>
             <h3 class="block-card-title">1. Identidades, Autoconhecimento e Conexões</h3>
-            <p class="block-card-desc">
-              Conhecer trajetórias, interesses e expectativas, valorizar experiências, sair da caverna e mapear seu perfil DISC.
-            </p>
-            <ul class="block-axes-list">
-              <li>🛂 <strong>Eixo 1:</strong> Identidades e Conexões (Passaporte & Interesses)</li>
-              <li>🏆 <strong>Revista Pág. 4:</strong> Sabedoria da Experiência</li>
-              <li>🕯️ <strong>Revista Pág. 5:</strong> Saindo da Caverna (Platão)</li>
-              <li>🧭 <strong>Revista Pág. 6:</strong> Perfil Comportamental DISC</li>
-            </ul>
+            <div class="block-card-body-wrap">
+              <div class="block-card-body-content">
+                <p class="block-card-desc">
+                  Conhecer trajetórias, interesses e expectativas, valorizar experiências, sair da caverna e mapear seu perfil DISC.
+                </p>
+                <ul class="block-axes-list">
+                  <li>🛂 <strong>Eixo 1:</strong> Identidades e Conexões (Passaporte & Interesses)</li>
+                  <li>🏆 <strong>Revista Pág. 4:</strong> Sabedoria da Experiência</li>
+                  <li>🕯️ <strong>Revista Pág. 5:</strong> Saindo da Caverna (Platão)</li>
+                  <li>🧭 <strong>Revista Pág. 6:</strong> Perfil Comportamental DISC</li>
+                </ul>
+              </div>
+              <div class="block-card-locked-overlay">
+                <div class="locked-frosted-badge">
+                  <span class="locked-icon">🔒</span>
+                  <div class="locked-info">
+                    <strong>Conteúdo Bloqueado</strong>
+                    <span>Início da Jornada</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="block-progress-area">
             <div class="block-progress-header">
@@ -4818,15 +4931,28 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
               <div id="trail-icon-b2" class="padlock-icon-badge" title="Status do Cadeado">🔒</div>
             </div>
             <h3 class="block-card-title">2. Possibilidades, Caminhos e Habilidades em Ação</h3>
-            <p class="block-card-desc">
-              Avaliar Hard e Soft Skills no Raio-X, explorar áreas em rodas de conversa, reconhecer referências e praticar em oficinas.
-            </p>
-            <ul class="block-axes-list">
-              <li>📊 <strong>Revista Pág. 7:</strong> Raio-X de Competências (Radar)</li>
-              <li>🗺️ <strong>Eixo 2:</strong> Possibilidades e Caminhos (Rodas & Área)</li>
-              <li>🌟 <strong>Revista Pág. 8:</strong> Quem Inspira a Minha Jornada?</li>
-              <li>⚡ <strong>Eixo 3:</strong> Habilidades em Ação (Oficinas & Casos)</li>
-            </ul>
+            <div class="block-card-body-wrap">
+              <div class="block-card-body-content">
+                <p class="block-card-desc">
+                  Avaliar Hard e Soft Skills no Raio-X, explorar áreas em rodas de conversa, reconhecer referências e praticar em oficinas.
+                </p>
+                <ul class="block-axes-list">
+                  <li>📊 <strong>Revista Pág. 7:</strong> Raio-X de Competências (Radar)</li>
+                  <li>🗺️ <strong>Eixo 2:</strong> Possibilidades e Caminhos (Rodas & Área)</li>
+                  <li>🌟 <strong>Revista Pág. 8:</strong> Quem Inspira a Minha Jornada?</li>
+                  <li>⚡ <strong>Eixo 3:</strong> Habilidades em Ação (Oficinas & Casos)</li>
+                </ul>
+              </div>
+              <div class="block-card-locked-overlay">
+                <div class="locked-frosted-badge">
+                  <span class="locked-icon">🔒</span>
+                  <div class="locked-info">
+                    <strong>Conteúdo Bloqueado</strong>
+                    <span>Libera após conclusão do Bloco 01</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="block-progress-area">
             <div class="block-progress-header">
@@ -4850,15 +4976,28 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
               <div id="trail-icon-b3" class="padlock-icon-badge" title="Status do Cadeado">🔒</div>
             </div>
             <h3 class="block-card-title">3. Vivências, Marca Profissional e Meu Próximo Passo</h3>
-            <p class="block-card-desc">
-              Vivenciar rotinas em outras áreas, fortalecer presença e LinkedIn, sintetizar sua marca e firmar seu PDI SMART e Carta do Futuro.
-            </p>
-            <ul class="block-axes-list">
-              <li>🤝 <strong>Eixo 4:</strong> Vivências e Conexões (Visitas & Desafios)</li>
-              <li>🌐 <strong>Revista Pág. 9:</strong> Networking, Presença & LinkedIn</li>
-              <li>💎 <strong>Etapa 09:</strong> Marca Profissional do Instrutor</li>
-              <li>🎯 <strong>Eixo 5 (Págs. 10–12):</strong> PDI SMART & Carta do Futuro</li>
-            </ul>
+            <div class="block-card-body-wrap">
+              <div class="block-card-body-content">
+                <p class="block-card-desc">
+                  Vivenciar rotinas em outras áreas, fortalecer presença e LinkedIn, sintetizar sua marca e firmar seu PDI SMART e Carta do Futuro.
+                </p>
+                <ul class="block-axes-list">
+                  <li>🤝 <strong>Eixo 4:</strong> Vivências e Conexões (Visitas & Desafios)</li>
+                  <li>🌐 <strong>Revista Pág. 9:</strong> Networking, Presença & LinkedIn</li>
+                  <li>💎 <strong>Etapa 09:</strong> Marca Profissional do Instrutor</li>
+                  <li>🎯 <strong>Eixo 5 (Págs. 10–12):</strong> PDI SMART & Carta do Futuro</li>
+                </ul>
+              </div>
+              <div class="block-card-locked-overlay">
+                <div class="locked-frosted-badge">
+                  <span class="locked-icon">🔒</span>
+                  <div class="locked-info">
+                    <strong>Conteúdo Bloqueado</strong>
+                    <span>Libera após conclusão do Bloco 02</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="block-progress-area">
             <div class="block-progress-header">
