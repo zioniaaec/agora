@@ -5152,7 +5152,8 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
                 </div>
               </div>
 
-              <div class="passport-layout">
+              <!-- BLOCO 1: GRID IDENTIDADE DO PASSAPORTE (Visual Card + 6 Campos Diretos em Harmonia Perfeita) -->
+              <div class="passport-identity-grid">
                 <!-- Preview Visual do Passaporte Ágora em Tempo Real -->
                 <div class="passport-visual-card">
                   <div class="passport-stamp-header">
@@ -5190,13 +5191,13 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
                   <div style="background:rgba(8,183,188,0.18);border:1px solid rgba(8,183,188,0.45);padding:0.85rem 1rem;border-radius:10px;">
                     <small style="display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:#FFFFFF;font-weight:700;">🗺️ Mapa de Interesses Selecionados</small>
                     <div id="pass-live-interesses" style="font-size:0.82rem;margin-top:0.25rem;color:#E6F4FA;">
-                      Selecione seus temas no Mapa de Interesses ao lado
+                      Selecione seus temas no Mapa de Interesses abaixo
                     </div>
                   </div>
                 </div>
 
-                <!-- Campos do Passaporte + Mapa de Interesses -->
-                <div>
+                <!-- Campos de Identificação e Credenciais Oficiais que alimentam o Passaporte -->
+                <div class="passport-fields-col">
                   <div class="form-grid-2" style="margin-bottom:1rem;">
                     <div class="wb-field-card">
                       <label class="wb-field-label" for="field-nome">
@@ -5227,61 +5228,64 @@ body.theme-dark .slide-counter-text { color: #FFFFFF; }
                     </div>
                   </div>
 
-                  <div class="form-grid-2" style="margin-bottom:1rem;">
-                    <div class="wb-field-card">
-                      <label class="wb-field-label" for="field-minhaTrajetoria">
-                        <span class="wb-field-icon">🛣️</span> Minha trajetória
-                      </label>
-                      <textarea id="field-minhaTrajetoria" class="wb-textarea" data-field="minhaTrajetoria" placeholder="Principais passos e funções da sua caminhada..."></textarea>
-                    </div>
-                    <div class="wb-field-card">
-                      <label class="wb-field-label" for="field-minhasConquistas">
-                        <span class="wb-field-icon">🏅</span> Minhas conquistas
-                      </label>
-                      <textarea id="field-minhasConquistas" class="wb-textarea" data-field="minhasConquistas" placeholder="Resultados, turmas e marcos de que você se orgulha..."></textarea>
-                    </div>
-                  </div>
-
-                  <div class="form-grid-3" style="margin-bottom:1rem;">
+                  <div class="form-grid-2" style="margin-bottom:0;">
                     <div class="wb-field-card">
                       <label class="wb-field-label" for="field-meuSuperpoder">
                         <span class="wb-field-icon">⚡</span> Meu superpoder
                       </label>
-                      <textarea id="field-meuSuperpoder" class="wb-textarea" data-field="meuSuperpoder" placeholder="Sua maior força em sala de aula..."></textarea>
-                    </div>
-                    <div class="wb-field-card">
-                      <label class="wb-field-label" for="field-meuDesenvolvimento">
-                        <span class="wb-field-icon">🌱</span> Meu desenvolvimento
-                      </label>
-                      <textarea id="field-meuDesenvolvimento" class="wb-textarea" data-field="meuDesenvolvimento" placeholder="O que você busca aprimorar hoje..."></textarea>
+                      <textarea id="field-meuSuperpoder" class="wb-textarea" data-field="meuSuperpoder" style="min-height:76px;" placeholder="Sua maior força em sala de aula..."></textarea>
                     </div>
                     <div class="wb-field-card">
                       <label class="wb-field-label" for="field-meuFuturo">
-                        <span class="wb-field-icon">🚀</span> Meu futuro
+                        <span class="wb-field-icon">🚀</span> Meu futuro / Visão de carreira
                       </label>
-                      <textarea id="field-meuFuturo" class="wb-textarea" data-field="meuFuturo" placeholder="Aonde você deseja chegar na carreira..."></textarea>
+                      <textarea id="field-meuFuturo" class="wb-textarea" data-field="meuFuturo" style="min-height:76px;" placeholder="Aonde você deseja chegar na carreira..."></textarea>
                     </div>
-                  </div>
-
-                  <!-- Mapa de Interesses (Atividade Prática da Matriz — Bloco 1) -->
-                  <div class="wb-field-card highlight-card" style="margin-bottom:1rem;">
-                    <div class="wb-field-label">
-                      <span class="wb-field-icon" style="background:var(--agora-turquoise);">🗺️</span>
-                      Mapa de Interesses Profissionais (Selecione os temas que mais despertam seu interesse neste Ciclo)
-                    </div>
-                    <p class="wb-field-hint">Clique nos temas abaixo para adicioná-los ao seu Passaporte Profissional:</p>
-                    <div id="interest-chips-container" class="interest-tags-wrap"></div>
-                  </div>
-
-                  <div class="wb-field-card">
-                    <label class="wb-field-label" for="field-expectativasEncontro">
-                      <span class="wb-field-icon">✨</span> Quais são as minhas expectativas para este encontro e para o Ciclo?
-                    </label>
-                    <textarea id="field-expectativasEncontro" class="wb-textarea" data-field="expectativasEncontro" placeholder="Registre o que você espera viver, aprender e construir nesta jornada..."></textarea>
                   </div>
                 </div>
               </div>
-                          <div class="slide-nav-bar">
+
+              <!-- BLOCO 2: PILARES REFLEXIVOS DE DESENVOLVIMENTO (3 Colunas em Largura Total Proporcional) -->
+              <div class="form-grid-3" style="margin-bottom:1.5rem;">
+                <div class="wb-field-card">
+                  <label class="wb-field-label" for="field-minhaTrajetoria">
+                    <span class="wb-field-icon">🛣️</span> Minha trajetória
+                  </label>
+                  <textarea id="field-minhaTrajetoria" class="wb-textarea" data-field="minhaTrajetoria" style="min-height:105px;" placeholder="Principais passos e funções da sua caminhada..."></textarea>
+                </div>
+                <div class="wb-field-card">
+                  <label class="wb-field-label" for="field-minhasConquistas">
+                    <span class="wb-field-icon">🏅</span> Minhas conquistas
+                  </label>
+                  <textarea id="field-minhasConquistas" class="wb-textarea" data-field="minhasConquistas" style="min-height:105px;" placeholder="Resultados, turmas e marcos de que você se orgulha..."></textarea>
+                </div>
+                <div class="wb-field-card">
+                  <label class="wb-field-label" for="field-meuDesenvolvimento">
+                    <span class="wb-field-icon">🌱</span> Meu desenvolvimento
+                  </label>
+                  <textarea id="field-meuDesenvolvimento" class="wb-textarea" data-field="meuDesenvolvimento" style="min-height:105px;" placeholder="O que você busca aprimorar hoje..."></textarea>
+                </div>
+              </div>
+
+              <!-- BLOCO 3: MAPA DE INTERESSES PROFISSIONAIS (Largura Total Ampla e Espaçosa) -->
+              <div class="wb-field-card highlight-card" style="margin-bottom:1.5rem;">
+                <div class="wb-field-label">
+                  <span class="wb-field-icon" style="background:var(--agora-turquoise);">🗺️</span>
+                  Mapa de Interesses Profissionais (Selecione os temas que mais despertam seu interesse neste Ciclo)
+                </div>
+                <p class="wb-field-hint">Clique nos temas abaixo para adicioná-los ao seu Passaporte Profissional:</p>
+                <div id="interest-chips-container" class="interest-tags-wrap"></div>
+              </div>
+
+              <!-- BLOCO 4: EXPECTATIVAS PARA O CICLO (Largura Total) -->
+              <div class="wb-field-card" style="margin-bottom:1rem;">
+                <label class="wb-field-label" for="field-expectativasEncontro">
+                  <span class="wb-field-icon">✨</span> Quais são as minhas expectativas para este encontro e para o Ciclo?
+                </label>
+                <textarea id="field-expectativasEncontro" class="wb-textarea" data-field="expectativasEncontro" style="min-height:85px;" placeholder="Registre o que você espera viver, aprender e construir nesta jornada..."></textarea>
+              </div>
+
+              <div class="slide-nav-bar">
                 <button type="button" class="btn btn-outline btn-slide-prev" style="opacity:0.35;pointer-events:none;" onclick="AgoraApp.navegarSlide(1, -1)">
                   ← Início do Bloco
                 </button>
