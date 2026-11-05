@@ -2594,6 +2594,370 @@ body.theme-dark .gestor-card-section {
 }
 
 
+
+/* ==========================================================================
+   TRILHA LITERAL INTERATIVA COM ANIMAÇÕES & SISTEMA DE SLIDES POR ETAPA
+   ========================================================================== */
+.trilha-roadmap-container {
+  background: #FFFFFF;
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-xl);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 28px rgba(5, 61, 104, 0.06);
+}
+
+.trilha-roadmap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.trilha-header-title h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--agora-deep);
+  margin: 0.25rem 0 0 0;
+}
+
+.trilha-badge-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(8, 183, 188, 0.12);
+  color: #0F766E;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.trilha-view-mode-toggle {
+  display: inline-flex;
+  background: #F1F5F9;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid #E2E8F0;
+}
+
+.view-mode-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn.active {
+  background: #FFFFFF;
+  color: #053D68;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Track & Stations */
+.trilha-track-wrapper {
+  position: relative;
+  padding: 1rem 0.5rem 0.5rem;
+}
+
+.trilha-track-line-bg {
+  position: absolute;
+  top: 36px;
+  left: 36px;
+  right: 36px;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.trilha-track-line-fill {
+  position: absolute;
+  top: 36px;
+  left: 36px;
+  height: 6px;
+  background: linear-gradient(90deg, #08B7BC 0%, #258FC0 100%);
+  border-radius: 999px;
+  z-index: 2;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(8, 183, 188, 0.5);
+}
+
+.trilha-stations-row {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.trilha-station-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  transition: transform 0.25s ease;
+}
+
+.trilha-station-node:hover {
+  transform: translateY(-4px);
+}
+
+.station-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid #CBD5E1;
+  box-shadow: 0 4px 12px rgba(5, 61, 104, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.25s ease;
+  margin-bottom: 0.55rem;
+}
+
+.station-icon {
+  font-size: 1.55rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.station-check-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.trilha-station-node.completed .station-check-badge {
+  display: flex;
+}
+
+/* Active Station */
+.trilha-station-node.active .station-icon-wrap {
+  border-color: #08B7BC;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E0F2FE 100%);
+  box-shadow: 0 0 0 6px rgba(8, 183, 188, 0.22), 0 8px 20px rgba(8, 183, 188, 0.35);
+  transform: scale(1.1);
+}
+
+.trilha-station-node.active .station-title {
+  color: #08B7BC !important;
+  font-weight: 800 !important;
+}
+
+.trilha-station-node.active .station-step-num {
+  background: var(--agora-deep);
+  color: #FFFFFF;
+}
+
+.station-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.station-step-num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 1px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.station-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--agora-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.station-sub {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  white-space: nowrap;
+}
+
+/* Micro-Animações */
+@keyframes animPassaporte {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-6deg) scale(1.06); }
+}
+.anim-passaporte .station-icon,
+.trilha-station-node.active .anim-passaporte .station-icon {
+  animation: animPassaporte 2.5s ease-in-out infinite;
+}
+
+@keyframes animSabedoria {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(234, 179, 8, 0.2)); }
+  50% { transform: scale(1.14) rotate(4deg); filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.75)); }
+}
+.anim-sabedoria .station-icon,
+.trilha-station-node.active .anim-sabedoria .station-icon {
+  animation: animSabedoria 2.2s ease-in-out infinite;
+}
+
+@keyframes animCaverna {
+  0%, 100% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.5)); }
+  35% { transform: scale(1.1) translateY(-3px) rotate(4deg); filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.9)); }
+  70% { transform: scale(1.03) translateY(-1px) rotate(-3deg); filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.7)); }
+}
+.anim-caverna .station-icon,
+.trilha-station-node.active .anim-caverna .station-icon {
+  animation: animCaverna 1.8s ease-in-out infinite;
+}
+
+@keyframes animDisc {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(18deg) scale(1.08); }
+  75% { transform: rotate(-18deg) scale(1.08); }
+}
+.anim-disc .station-icon,
+.trilha-station-node.active .anim-disc .station-icon {
+  animation: animDisc 3.2s ease-in-out infinite;
+}
+
+@keyframes animMissoes {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); filter: drop-shadow(0 0 7px rgba(8, 183, 188, 0.8)); }
+}
+.anim-missoes .station-icon,
+.trilha-station-node.active .anim-missoes .station-icon {
+  animation: animMissoes 2.2s ease-in-out infinite;
+}
+
+@keyframes animCheckpoint {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-7px) rotate(-6deg); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY(-2px); }
+}
+.anim-checkpoint .station-icon,
+.trilha-station-node.active .anim-checkpoint .station-icon {
+  animation: animCheckpoint 2.4s ease-in-out infinite;
+}
+
+/* Sistema de Slides por Etapa */
+.trilha-slide-item {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trilha-slide-item.active {
+  display: block;
+  opacity: 1;
+  animation: slideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.25rem 1.6rem;
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+  border: 1px solid var(--agora-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 14px rgba(5, 61, 104, 0.05);
+}
+
+.slide-nav-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.slide-counter-text {
+  font-size: 0.86rem;
+  color: var(--agora-deep);
+  font-weight: 600;
+}
+
+.slide-mini-progress-bar {
+  width: 100%;
+  max-width: 200px;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.slide-mini-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #08B7BC, #258FC0);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.modo-continuo .trilha-slide-item {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+  margin-bottom: 2.5rem;
+}
+
+.modo-continuo .slide-nav-bar {
+  display: none !important;
+}
+
+body.theme-dark .trilha-roadmap-container {
+  background: #062F52;
+  border-color: rgba(8, 183, 188, 0.3);
+}
+
+body.theme-dark .trilha-header-title h4 { color: #FFFFFF; }
+body.theme-dark .station-icon-wrap { background: #053D68; border-color: #12639A; }
+body.theme-dark .station-title { color: #F0F8FF; }
+body.theme-dark .slide-nav-bar { background: #053D68; border-color: rgba(8, 183, 188, 0.3); }
+body.theme-dark .slide-counter-text { color: #FFFFFF; }
+
 /* ==========================================================================
    POPUP CARTA CONVITE ÁGORA (ABRE APÓS O LOGIN COMO UMA CARTA)
    ========================================================================== */
@@ -4538,25 +4902,107 @@ body.theme-dark .gestor-card-section {
           </div>
 
           <!-- Subnavegação das Seções do Bloco 01 -->
-          <div class="workspace-subnav">
-            <button type="button" class="subnav-step-btn active" onclick="AgoraApp.scrollToSection('sec-b1-passaporte', this)">
-              🛂 1.1 Passaporte & Mapa de Interesses
-            </button>
-            <button type="button" class="subnav-step-btn" onclick="AgoraApp.scrollToSection('sec-b1-sabedoria', this)">
-              🏆 1.2 Sabedoria da Experiência
-            </button>
-            <button type="button" class="subnav-step-btn" onclick="AgoraApp.scrollToSection('sec-b1-caverna', this)">
-              🕯️ 1.3 Saindo da Caverna
-            </button>
-            <button type="button" class="subnav-step-btn" onclick="AgoraApp.scrollToSection('sec-b1-disc', this)">
-              🧭 1.4 Perfil Comportamental DISC
-            </button>
-          </div>
+                    <!-- ========================================================================
+               TRILHA INTERATIVA GAMIFICADA COM ANIMAÇÕES (BLOCO 01)
+               ======================================================================== -->
+          <div class="trilha-roadmap-container" id="trilha-b1">
+            <div class="trilha-roadmap-header">
+              <div class="trilha-header-title">
+                <span class="trilha-badge-mini">🗺️ TRILHA INTERATIVA • MÊS 1</span>
+                <h4>Estações de Aprendizagem do Bloco 01</h4>
+              </div>
+              <div class="trilha-view-mode-toggle">
+                <button type="button" class="view-mode-btn active" id="btn-mode-slides-1" onclick="AgoraApp.toggleModoVisualizacao(1, 'slides')" title="Navegação em Slides confortáveis">
+                  🎯 Modo Slides
+                </button>
+                <button type="button" class="view-mode-btn" id="btn-mode-scroll-1" onclick="AgoraApp.toggleModoVisualizacao(1, 'scroll')" title="Ver todas as páginas de uma vez">
+                  📜 Ver Tudo
+                </button>
+              </div>
+            </div>
 
-          <div class="workspace-body">
+            <div class="trilha-track-wrapper">
+              <div class="trilha-track-line-bg"></div>
+              <div class="trilha-track-line-fill" id="trilha-fill-b1" style="width: 0%;"></div>
+
+              <div class="trilha-stations-row">
+                <div class="trilha-station-node active" id="station-b1-1" onclick="AgoraApp.irParaEtapaSlide(1, 1)">
+                  <div class="station-icon-wrap anim-passaporte">
+                    <span class="station-icon">🛂</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 01</span>
+                    <strong class="station-title">Passaporte</strong>
+                    <small class="station-sub">Pág. 03</small>
+                  </div>
+                </div>
+
+                <div class="trilha-station-node" id="station-b1-2" onclick="AgoraApp.irParaEtapaSlide(1, 2)">
+                  <div class="station-icon-wrap anim-sabedoria">
+                    <span class="station-icon">🏆</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 02</span>
+                    <strong class="station-title">Sabedoria</strong>
+                    <small class="station-sub">Pág. 04</small>
+                  </div>
+                </div>
+
+                <div class="trilha-station-node" id="station-b1-3" onclick="AgoraApp.irParaEtapaSlide(1, 3)">
+                  <div class="station-icon-wrap anim-caverna">
+                    <span class="station-icon">🕯️</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 03</span>
+                    <strong class="station-title">Caverna</strong>
+                    <small class="station-sub">Pág. 05</small>
+                  </div>
+                </div>
+
+                <div class="trilha-station-node" id="station-b1-4" onclick="AgoraApp.irParaEtapaSlide(1, 4)">
+                  <div class="station-icon-wrap anim-disc">
+                    <span class="station-icon">🧭</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 04</span>
+                    <strong class="station-title">Perfil DISC</strong>
+                    <small class="station-sub">Pág. 06</small>
+                  </div>
+                </div>
+
+                <div class="trilha-station-node" id="station-b1-5" onclick="AgoraApp.irParaEtapaSlide(1, 5)">
+                  <div class="station-icon-wrap anim-missoes">
+                    <span class="station-icon">🎯</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 05</span>
+                    <strong class="station-title">Missões</strong>
+                    <small class="station-sub">Em Campo</small>
+                  </div>
+                </div>
+
+                <div class="trilha-station-node" id="station-b1-6" onclick="AgoraApp.irParaEtapaSlide(1, 6)">
+                  <div class="station-icon-wrap anim-checkpoint">
+                    <span class="station-icon">📌</span>
+                    <span class="station-check-badge">✓</span>
+                  </div>
+                  <div class="station-info">
+                    <span class="station-step-num">ETAPA 06</span>
+                    <strong class="station-title">Checkpoint</strong>
+                    <small class="station-sub">1:1 Gestor</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><div class="workspace-body">
 
             <!-- SEÇÃO 1.1: PASSAPORTE ÁGORA & MAPA DE INTERESSES (Pág. 03 da Revista + Eixo 1 da Matriz) -->
-            <div id="sec-b1-passaporte" class="workbook-section">
+            <div id="sec-b1-passaporte" class="workbook-section trilha-slide-item active" data-step="1">
               <div class="wb-page-header">
                 <div>
                   <span class="wb-page-badge">PÁGINA 03 WORKBOOK • EIXO 1: IDENTIDADES E CONEXÕES</span>
@@ -4696,10 +5142,26 @@ body.theme-dark .gestor-card-section {
                   </div>
                 </div>
               </div>
+                          <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev" style="opacity:0.35;pointer-events:none;" onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Início do Bloco
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">1</span> de 6</strong> • <span class="cur-step-title">1.1 Passaporte Ágora</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 17%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Próxima Etapa: 1.2 Sabedoria →
+                </button>
+              </div>
             </div>
 
             <!-- SEÇÃO 1.2: SABEDORIA DA EXPERIÊNCIA (Pág. 04 da Revista) -->
-            <div id="sec-b1-sabedoria" class="workbook-section">
+            <div id="sec-b1-sabedoria" class="workbook-section trilha-slide-item" data-step="2">
               <div class="wb-page-header">
                 <div>
                   <span class="wb-page-badge">PÁGINA 04 WORKBOOK • VALORIZAÇÃO DA TRAJETÓRIA</span>
@@ -4747,10 +5209,26 @@ body.theme-dark .gestor-card-section {
                 </label>
                 <textarea id="field-sabedoriaMaiorAprendizagem" class="wb-textarea" data-field="sabedoriaMaiorAprendizagem" placeholder="Sintetize em uma frase ou parágrafo a maior lição da sua carreira até hoje..."></textarea>
               </div>
+                          <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev"  onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Voltar para Etapa 1
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">2</span> de 6</strong> • <span class="cur-step-title">1.2 Sabedoria da Experiência</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 33%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Próxima Etapa: 1.3 Saindo da Caverna →
+                </button>
+              </div>
             </div>
 
             <!-- SEÇÃO 1.3: SAINDO DA CAVERNA (Pág. 05 da Revista + Alegoria de Platão) -->
-            <div id="sec-b1-caverna" class="workbook-section">
+            <div id="sec-b1-caverna" class="workbook-section trilha-slide-item" data-step="3">
               <div class="wb-page-header">
                 <div>
                   <span class="wb-page-badge">PÁGINA 05 WORKBOOK • AMPLIAÇÃO DE VISÃO</span>
@@ -4838,10 +5316,26 @@ body.theme-dark .gestor-card-section {
                 </label>
                 <textarea id="field-cavernaProximoPasso" class="wb-textarea" data-field="cavernaProximoPasso" placeholder="Descreva uma atitude prática que você iniciará já nesta semana..."></textarea>
               </div>
+                          <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev"  onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Voltar para Etapa 2
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">3</span> de 6</strong> • <span class="cur-step-title">1.3 Saindo da Caverna</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 50%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Próxima Etapa: 1.4 Perfil Comportamental DISC →
+                </button>
+              </div>
             </div>
 
             <!-- SEÇÃO 1.4: PERFIL COMPORTAMENTAL DISC (Pág. 06 da Revista) -->
-            <div id="sec-b1-disc" class="workbook-section">
+            <div id="sec-b1-disc" class="workbook-section trilha-slide-item" data-step="4">
               <div class="wb-page-header">
                 <div>
                   <span class="wb-page-badge">PÁGINA 06 WORKBOOK • AUTOCONHECIMENTO COMPORTAMENTAL</span>
@@ -4999,12 +5493,29 @@ body.theme-dark .gestor-card-section {
               <button type="button" class="btn btn-turquoise btn-lg" onclick="AgoraApp.submitBlockForm(1)">
                 ✅ Concluir e Enviar Forms do Bloco 01 → Destravar Bloco 02 🔓
               </button>
+                          <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev"  onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Voltar para Etapa 3
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">4</span> de 6</strong> • <span class="cur-step-title">1.4 Perfil Comportamental DISC</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 67%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Próxima Etapa: 🎯 Missões Práticas →
+                </button>
+              </div>
             </div>
 
           
             <!-- ========================================================================
                  ETAPA 2: MISSÕES PRÁTICAS — ATIVIDADES PARA CASA (BLOCO 01)
                  ======================================================================== -->
+            <div class="workbook-section trilha-slide-item" data-step="5">
             <div class="missoes-container">
               <div class="missoes-header">
                 <div>
@@ -5063,8 +5574,27 @@ body.theme-dark .gestor-card-section {
             </div>
 </div>
         </div>
+              <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev"  onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Voltar para Etapa 4
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">5</span> de 6</strong> • <span class="cur-step-title">🎯 Missões Práticas</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 83%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Próxima Etapa: 📌 Checkpoint Obrigatório #1 →
+                </button>
+              </div>
+            </div>
+
 
         
+        <div class="workbook-section trilha-slide-item" data-step="6">
         <!-- CHECKPOINT OBRIGATÓRIO DO GESTOR #1 -->
         <div class="checkpoint-container" id="checkpoint-bloco-1-box">
           <div class="checkpoint-badge">
@@ -5096,6 +5626,37 @@ body.theme-dark .gestor-card-section {
             </button>
           </div>
         </div>
+
+        <!-- RODAPÉ DE ENVIO DO FORMS DO BLOCO 01 -> DESTRAVA BLOCO 02 -->
+        <div class="block-submit-footer" style="margin-top:20px;">
+          <div>
+            <span class="wb-page-badge" style="background:var(--agora-deep);color:#fff;">PRÓXIMA ETAPA DA TRILHA</span>
+            <h4 style="font-size:1.2rem;color:var(--agora-deep);">Pronto(a) para concluir o Bloco 01 e destravar o cadeado do Bloco 02?</h4>
+            <p style="font-size:0.86rem;color:var(--agora-text-muted);">
+              Ao enviar o Forms do Bloco 01, o sistema grava seu protocolo de entrega e abre imediatamente o <strong>Bloco 02 (Mês 2 — Possibilidades, Caminhos e Habilidades em Ação)</strong>.
+            </p>
+          </div>
+          <button type="button" class="btn btn-turquoise btn-lg" onclick="AgoraApp.submitBlockForm(1)">
+            ✅ Concluir e Enviar Forms do Bloco 01 → Destravar Bloco 02 🔓
+          </button>
+        </div>
+              <div class="slide-nav-bar">
+                <button type="button" class="btn btn-outline btn-slide-prev"  onclick="AgoraApp.navegarSlide(1, -1)">
+                  ← Voltar para Etapa 5
+                </button>
+                <div class="slide-nav-counter">
+                  <div class="slide-counter-text">
+                    <strong>Etapa <span class="cur-step-num">6</span> de 6</strong> • <span class="cur-step-title">📌 Checkpoint #1 & Conclusão</span>
+                  </div>
+                  <div class="slide-mini-progress-bar">
+                    <div class="slide-mini-progress-fill" style="width: 100%;"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-turquoise btn-slide-next" onclick="AgoraApp.navegarSlide(1, 1)">
+                  Concluir Etapas do Bloco 🚀
+                </button>
+              </div>
+      </div>
 
         <!-- ==================================================================
              FORMS DO BLOCO 02 (MÊS 2): RAIO-X, CAMINHOS, INSPIRAÇÕES & OFICINAS
@@ -7675,6 +8236,9 @@ window.AgoraApp = {
     this.renderDynamicLists();
     this.bindFormInputs();
     this.refreshAllUI();
+    if (this.irParaEtapaSlide) {
+      this.irParaEtapaSlide(1, 1);
+    }
   },
 
   loadState: function () {
@@ -7743,9 +8307,13 @@ window.AgoraApp = {
         );
       }, 60);
     }
-    const workspaceEl = document.getElementById("active-block-workspace");
-    if (workspaceEl) {
-      workspaceEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (this.irParaEtapaSlide) {
+      this.irParaEtapaSlide(blockId, this.currentSlide[blockId] || 1);
+    } else {
+      const workspaceEl = document.getElementById("active-block-workspace");
+      if (workspaceEl) {
+        workspaceEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   },
 
@@ -9069,6 +9637,154 @@ AgoraApp.abrirModalCadastro = function() {
 // ==========================================================================
 // CONTROLE DA CARTA CONVITE (ABERTURA COM ANIMAÇÃO & REDIRECIONAMENTO AO INÍCIO)
 // ==========================================================================
+
+// ==========================================================================
+// ENGINE DA TRILHA INTERATIVA EM SLIDES (AGORA SLIDE ENGINE)
+// ==========================================================================
+AgoraApp.currentSlide = { 1: 1, 2: 1, 3: 1 };
+AgoraApp.modoVisualizacao = { 1: 'slides', 2: 'slides', 3: 'slides' };
+
+AgoraApp.slideTitles = {
+  1: {
+    1: "1.1 Passaporte Ágora & Mapa de Interesses",
+    2: "1.2 Sabedoria da Experiência",
+    3: "1.3 Saindo da Caverna",
+    4: "1.4 Perfil Comportamental DISC",
+    5: "🎯 Missões Práticas entre Encontros",
+    6: "📌 Checkpoint #1 & Conclusão do Bloco 01"
+  },
+  2: {
+    1: "2.1 Raio-X de Competências",
+    2: "2.2 Possibilidades e Caminhos",
+    3: "2.3 Quem Inspira a Minha Jornada?",
+    4: "2.4 Habilidades em Ação",
+    5: "🎯 Missões Práticas Bloco 02",
+    6: "📌 Checkpoint #2 & Conclusão do Bloco 02"
+  },
+  3: {
+    1: "3.1 Vivências e Conexões",
+    2: "3.2 Networking e Presença Profissional",
+    3: "3.3 Minha Marca Profissional",
+    4: "3.4 PDI ÁGORA — Plano de Desenvolvimento",
+    5: "3.5 Carta para o Meu Eu do Futuro",
+    6: "📌 Checkpoint #3 & Gerar Dossiê Final"
+  }
+};
+
+AgoraApp.irParaEtapaSlide = function(blocoNum, stepNum) {
+  stepNum = Math.max(1, Math.min(6, stepNum));
+  this.currentSlide[blocoNum] = stepNum;
+
+  const formEl = document.getElementById('form-bloco-' + blocoNum);
+  if (!formEl) return;
+
+  // 1. Alternar slides visíveis
+  const slides = formEl.querySelectorAll('.trilha-slide-item');
+  slides.forEach((s, idx) => {
+    if (idx + 1 === stepNum) {
+      s.classList.add('active');
+    } else {
+      s.classList.remove('active');
+    }
+  });
+
+  // 2. Atualizar Estações na Trilha Visual
+  const stations = formEl.querySelectorAll('.trilha-station-node');
+  stations.forEach((st, idx) => {
+    if (idx + 1 === stepNum) {
+      st.classList.add('active');
+    } else {
+      st.classList.remove('active');
+    }
+  });
+
+  // 3. Atualizar preenchimento da linha de progresso
+  const fillLine = document.getElementById('trilha-fill-b' + blocoNum);
+  if (fillLine) {
+    const pct = ((stepNum - 1) / 5) * 100;
+    fillLine.style.width = pct + '%';
+  }
+
+  // 4. Atualizar barras de navegação do slide
+  const totalSteps = 6;
+  const pctStep = Math.round((stepNum / totalSteps) * 100);
+  const titles = this.slideTitles[blocoNum] || {};
+
+  formEl.querySelectorAll('.slide-nav-bar').forEach(bar => {
+    const prevBtn = bar.querySelector('.btn-slide-prev');
+    const nextBtn = bar.querySelector('.btn-slide-next');
+    const numEl = bar.querySelector('.cur-step-num');
+    const titleEl = bar.querySelector('.cur-step-title');
+    const fillEl = bar.querySelector('.slide-mini-progress-fill');
+
+    if (numEl) numEl.textContent = stepNum;
+    if (titleEl) titleEl.textContent = titles[stepNum] || '';
+    if (fillEl) fillEl.style.width = pctStep + '%';
+
+    if (prevBtn) {
+      if (stepNum === 1) {
+        prevBtn.style.opacity = '0.35';
+        prevBtn.style.pointerEvents = 'none';
+        prevBtn.textContent = '← Início do Bloco';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+        prevBtn.textContent = '← Voltar para Etapa ' + (stepNum - 1);
+      }
+    }
+
+    if (nextBtn) {
+      if (stepNum === totalSteps) {
+        nextBtn.innerHTML = 'Concluir Etapas do Bloco 🚀';
+        nextBtn.className = 'btn btn-turquoise btn-slide-next';
+      } else {
+        nextBtn.innerHTML = 'Próxima Etapa: ' + (titles[stepNum + 1] || '') + ' →';
+        nextBtn.className = 'btn btn-turquoise btn-slide-next';
+      }
+    }
+  });
+
+  // 5. Scroll suave até o topo do workspace do bloco para foco imediato
+  const wsHeader = formEl.querySelector('.workspace-header');
+  if (wsHeader) {
+    wsHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
+AgoraApp.navegarSlide = function(blocoNum, delta) {
+  const current = this.currentSlide[blocoNum] || 1;
+  const target = current + delta;
+  if (target > 6 && delta > 0) {
+    const submitBtn = document.querySelector('#form-bloco-' + blocoNum + ' .block-submit-footer button');
+    if (submitBtn) {
+      submitBtn.scrollIntoView({ behavior: 'smooth' });
+      submitBtn.focus();
+    }
+    return;
+  }
+  this.irParaEtapaSlide(blocoNum, target);
+};
+
+AgoraApp.toggleModoVisualizacao = function(blocoNum, modo) {
+  this.modoVisualizacao[blocoNum] = modo;
+  const formEl = document.getElementById('form-bloco-' + blocoNum);
+  if (!formEl) return;
+
+  const btnSlides = document.getElementById('btn-mode-slides-' + blocoNum);
+  const btnScroll = document.getElementById('btn-mode-scroll-' + blocoNum);
+
+  if (modo === 'scroll') {
+    formEl.classList.add('modo-continuo');
+    if (btnScroll) btnScroll.classList.add('active');
+    if (btnSlides) btnSlides.classList.remove('active');
+  } else {
+    formEl.classList.remove('modo-continuo');
+    if (btnSlides) btnSlides.classList.add('active');
+    if (btnScroll) btnScroll.classList.remove('active');
+    this.irParaEtapaSlide(blocoNum, this.currentSlide[blocoNum] || 1);
+  }
+};
+
 AgoraApp.abrirCartaConvite = function() {
   const overlay = document.getElementById('carta-convite-overlay');
   if (!overlay) return;

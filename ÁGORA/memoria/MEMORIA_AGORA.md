@@ -101,3 +101,18 @@ O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a *
 - **Integração Real End-to-End em Todas as Áreas:** Todas as abas da aplicação consomem e persistem dados reais no Supabase (`jornada_respostas`, `missoes_praticas`, `checkpoints_lideranca`, `facilitador_sala`), sem elementos estáticos ou mensagens de "fase de teste", mantendo o padrão visual oficial com indicadores elegantes de sincronização em nuvem.
 - **Efeito Fosco e Cadeado Progressivo na Matriz de Eixos:** Na tabela "Matriz Oficial dos Blocos & Atividades Práticas (Ciclo de 3 Meses)", apenas o Bloco 01 (Mês 1) permanece com objetivo, atividade e quem contribui visíveis. Os Blocos 02 e 03 mantêm a identificação do Bloco & Eixo nítida, enquanto as colunas de Objetivo, Atividade Prática e Quem Contribui aplicam efeito fosco (`filter: blur(5.5px); opacity: 0.22; user-select: none;`) acompanhado de badges de cadeado ativo (`🔒 Bloqueado` / `🔒 Cadeado Ativo • Mês 02/03`), reforçando a metodologia de destravamento progressivo.
 - **Popup de Boas-Vindas em Formato de Carta Convite:** Ao efetuar o login, a plataforma abre automaticamente o convite oficial em um modal overlay imersivo com animação 3D de desdobramento de carta (`transform: translateY(60px) scale(0.85) rotateX(18deg) -> scale(1)`), destacando o Selo Ágora 3D com efeito de pulso contínuo (`sealPulseLoop`). Ao clicar no selo/logo oficial, a carta se fecha com transição suave e redireciona o usuário para o Início da jornada (`view-inicio`).
+
+---
+
+## 8. Aprendizados [05/11/2026]
+
+- **Trilha Gamificada e Micro-Animações Temáticas nas Estações:** Para transformar o workbook longo em uma experiência envolvente e intuitiva, substituímos os submenus estáticos por uma trilha de progresso visual interativa (.trilha-roadmap-container). Cada estação possui ícones com micro-animações CSS exclusivas que refletem sua proposta pedagógica:
+  - 🛂 **Passaporte Ágora & Interesses:** Animação de flutuação e inclinação (nimPassaporte).
+  - 🏆 **Sabedoria da Experiência:** Pulsação dourada com brilho áureo (nimSabedoria).
+  - 🕯️ **Saindo da Caverna:** Chama tremeluzente da tocha e expansão da luz (nimCaverna).
+  - 🧭 **Perfil Comportamental DISC:** Bússola com rotação oscilante suave (nimDisc).
+  - 🎯 **Missões Práticas:** Alvo pulsante com resplendor em turquesa Ágora (nimMissoes).
+  - 📌 **Checkpoint da Liderança #1:** Marcador âncora com efeito de salto e fixação (nimCheckpoint).
+- **Navegação em Slides / Stepper Viewport:** A rolagem vertical excessiva em formulários extensos causa sobrecarga cognitiva e fadiga no participante. Com o motor de slides (AgoraApp.irParaEtapaSlide), cada etapa é exibida individualmente com transição lateral suave (slideFadeIn), dotada de barra de navegação inferior (slide-nav-bar) com botão de retorno, indicador percentual de avanço e botão de avanço contextual.
+- **Alternador de Modo de Leitura (Slides vs. Ver Tudo):** Disponibilizamos o seletor 	rilha-view-mode-toggle que permite ao usuário escolher entre a navegação focada em slides (🎯 Modo Slides) ou a visão vertical completa (📜 Modo Contínuo), respeitando preferências individuais de estudo e consulta rápida.
+- **Integridade Estrutural na Injeção DOM:** Ao empacotar seções preexistentes em contêineres de slides, a barra de navegação de cada etapa deve ser injetada no encerramento natural da própria seção antes de seu </div>, mantendo o balanço matemático exato de tags HTML (820 abertas / 820 fechadas, diff=0) e evitando quebras de layout.
