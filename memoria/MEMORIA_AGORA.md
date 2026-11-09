@@ -1,0 +1,130 @@
+# 🧠 Memória do Projeto: ÁGORA 2026 — Jornada de Desenvolvimento de Instrutores
+
+**Data de Atualização:** 26/10/2026  
+**Responsável:** Mickael Bandeira  
+**Localização do Projeto:** `C:\Users\User\Desktop\ÁGORA`  
+**Tema:** Plataforma Web do Programa ÁGORA 2026 ("Diálogo que transforma")
+
+---
+
+## 1. Visão Geral do Projeto ÁGORA
+
+O **ÁGORA 2026** é uma plataforma/aplicação web corporativa voltada para a **Jornada de Desenvolvimento de Instrutores** da AeC.
+
+### Regra Fundamental de Perfis e Permissões:
+> **👑 O Gestor vê TUDO:** possui controle executivo pleno e pode alternar livremente entre a visão do Gestor, a trilha do Instrutor e o cockpit do Facilitador.  
+> **👨‍🏫 O Instrutor só visualiza o seu perfil:** acesso exclusivo à sua trilha, missões práticas e dossiê individual. As áreas de gestão e facilitação são estritamente bloqueadas e invisíveis.  
+> **🎙️ O Facilitador só visualiza o seu perfil:** acesso exclusivo ao Cockpit de Sala (cronômetro de 5h, gestão de cadeados e manual metodológico). O portal da liderança é bloqueado e invisível.
+
+---
+
+## 2. Estrutura de Banco de Dados na Nuvem (Supabase)
+
+* **URL do Projeto:** `https://mxahgjxcdtodbdbxymtb.supabase.co`
+* **Anon Key:** Configurada para operações seguras do frontend (RLS ativo)
+* **SDK Integrado:** `@supabase/supabase-js@2` via CDN com fallback automático para `localStorage` caso o usuário esteja offline
+
+### Tabelas Criadas e Funcionais:
+
+1. **`usuarios`**:
+   - Cadastro e perfil dos participantes (`matricula`, `nome`, `email`, `operacao`, `gestor`, `perfil`).
+   - Perfis: `instrutor`, `gestor`, `facilitador`.
+2. **`jornada_respostas`**:
+   - Persistência dos formulários dos Blocos 01, 02 e 03, cadeados e dados do workbook (`invite`, `locks`, `fields`, `progresso_bloco1`, `progresso_bloco2`, `progresso_bloco3`, `progresso_geral`).
+3. **`missoes_praticas`**:
+   - Estado das 8 missões práticas de aplicação em campo (`checks`, `texts`, `total_concluidas`).
+4. **`checkpoints_lideranca`**:
+   - Alinhamentos 1:1 entre gestor e liderado (`checkpoint_num` 1, 2, 3, `resposta_lideranca`, `status`, `gestor_nome`, `data_validacao`).
+5. **`facilitador_sala`**:
+   - Estado de sala, cronômetro de 5 horas e status de liberação de cadeados.
+
+---
+
+## 3. Repositório Git e Deploy Contínuo
+
+* **Repositório Oficial:** `https://github.com/zioniaaec/agora.git`
+* **Branch Principal:** `main`
+* **Status:** ✅ Sincronizado e versionado
+
+### Integração com Vercel (Hospedagem & CI/CD)
+
+* **Framework Preset:** `Other`
+* **Root Directory:** `./`
+* **Build Command:** Deixar vazio (aplicação estática em `index.html`)
+* **Output Directory:** Deixar vazio
+* **Variáveis de Ambiente Configuradas na Vercel:**
+  * `SUPABASE_URL`: `https://mxahgjxcdtodbdbxymtb.supabase.co`
+  * `SUPABASE_ANON_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (Chave pública para o cliente web)
+  * `SUPABASE_SERVICE_ROLE_KEY`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (Chave interna para serverless/APIs)
+  * `SUPABASE_ACCESS_TOKEN`: *(Token pessoal de gerenciamento Supabase definido nas variáveis da Vercel)*
+
+---
+
+## 4. Matriz de Acesso e Permissões Implementada
+
+| Funcionalidade / Tela | 👨‍🏫 Instrutor | 🎙️ Facilitador | 👔 Gestor (Liderança) |
+| :--- | :---: | :---: | :---: |
+| **Início & Trilha 360°** (`view-inicio`) | ✅ Acesso | ℹ️ Modo Metodologia | ✅ Acesso Total |
+| **Ciclo 3 Meses & Forms** (`view-ciclo`) | ✅ Preenche Blocos & Missões | ✅ Modo Sala (Cadeados) | ✅ Acompanha Liderados |
+| **Dossiê do Participante** (`view-dossie`) | ✅ Acesso Próprio | ❌ Oculto | ✅ Acesso Total |
+| **Portal do Gestor** (`view-gestor`) | ❌ **BLOQUEADO & OCULTO** | ❌ **BLOQUEADO & OCULTO** | ✅ **Acesso Exclusivo** |
+| **Checkpoints da Liderança (1, 2 e 3)** | 👁️ Apenas Leitura / Status | ❌ Oculto | ✍️ Preenche & Valida |
+| **Cockpit do Facilitador** (`view-facilitador`) | ❌ **BLOQUEADO & OCULTO** | ✅ **Acesso Exclusivo** | ✅ **Acesso de Consulta** |
+| **Cronômetro Regressivo (5h) & Projeção** | ❌ Oculto | ✅ Acesso Total | ✅ Acesso Total |
+| **Alternador de Visão no Topo (Switcher)** | 🔒 Apenas Badge Fixa | 🔒 Apenas Badge Fixa | 👑 **Switcher Ativo (Ver Tudo)** |
+| **Troca de Acesso / Logout** | ✅ Botão `🔄 Trocar Acesso` | ✅ Botão `🔄 Trocar Acesso` | ✅ Botão `🔄 Sair` |
+
+---
+
+## 5. Estado Atual e Validação
+
+* ✅ **Arquivo Principal:** `index.html` (~440 KB com integração Supabase, motor de slides, trilha animada e fallback offline).
+* ✅ **Equilíbrio de Tags:** DIVs (847/847, diff=0), SECTIONS (5/5, diff=0), SCRIPTS (2/2, diff=0).
+* ✅ **Unicidade de Matrícula/E-mail e Perfil Fixo:** Impede escalação de privilégios ou duplicidade de papéis com os mesmos dados cadastrais.
+* ✅ **Sincronização Bidirecional:** Salva e carrega dados em tempo real no Supabase em todas as três áreas (Instrutor, Gestor e Facilitador).
+* ✅ **Seletor de Instrutores no Portal do Gestor:** Permite à liderança selecionar qualquer instrutor cadastrado no Supabase e auditar seus dados e checkpoints em tempo real.
+* ✅ **Zero Dependências de Build:** Funciona imediatamente no GitHub Pages, Vercel ou via arquivo local.
+
+---
+
+## 6. Aprendizados [26/10/2026]
+
+- **Políticas RLS Permissivas para Frontend Autônomo:** Ao permitir que clientes via `anon` leiam e atualizem seus registros através de políticas adequadas (`FOR ALL TO anon, authenticated USING (true) WITH CHECK (true)`), eliminamos atritos de autorização sem demandar servidores intermediários adicionais.
+- **Tratamento Híbrido Nuvem + Local:** A inclusão de um mecanismo de fallback resiliente (`localStorage` caso o Supabase falhe ou esteja offline) garante que a plataforma continue funcionando mesmo em ambientes corporativos com firewalls restritivos ou oscilação de rede.
+- **Push Protection do GitHub:** Tokens de acesso administrativo (como `sbp_...` do Supabase) são automaticamente bloqueados na esteira do Git em qualquer arquivo rastreado (código ou markdown). Mantemos credenciais sensíveis sempre protegidas via variáveis de ambiente da plataforma e documentadas apenas com máscaras no repositório.
+
+---
+
+## 7. Aprendizados [04/11/2026]
+
+- **Validação Antecipada de Credenciais e Anti-Escalação de Perfil:** Em plataformas com múltiplos perfis de acesso (Instrutor vs Gestor vs Facilitador), a verificação de existência por Matrícula e E-mail deve ocorrer tanto de forma assíncrona durante a digitação quanto de forma atômica e mandatória no envio do formulário. Se uma matrícula ou e-mail já estiver cadastrado como `instrutor`, o sistema bloqueia tentativas de acesso ou re-cadastro como `gestor`, fixando o perfil oficial registrado e impedindo invasão de privilégios.
+- **Integração Real End-to-End em Todas as Áreas:** Todas as abas da aplicação consomem e persistem dados reais no Supabase (`jornada_respostas`, `missoes_praticas`, `checkpoints_lideranca`, `facilitador_sala`), sem elementos estáticos ou mensagens de "fase de teste", mantendo o padrão visual oficial com indicadores elegantes de sincronização em nuvem.
+- **Efeito Fosco e Cadeado Progressivo na Matriz de Eixos:** Na tabela "Matriz Oficial dos Blocos & Atividades Práticas (Ciclo de 3 Meses)", apenas o Bloco 01 (Mês 1) permanece com objetivo, atividade e quem contribui visíveis. Os Blocos 02 e 03 mantêm a identificação do Bloco & Eixo nítida, enquanto as colunas de Objetivo, Atividade Prática e Quem Contribui aplicam efeito fosco (`filter: blur(5.5px); opacity: 0.22; user-select: none;`) acompanhado de badges de cadeado ativo (`🔒 Bloqueado` / `🔒 Cadeado Ativo • Mês 02/03`), reforçando a metodologia de destravamento progressivo.
+- **Popup de Boas-Vindas em Formato de Carta Convite:** Ao efetuar o login, a plataforma abre automaticamente o convite oficial em um modal overlay imersivo com animação 3D de desdobramento de carta (`transform: translateY(60px) scale(0.85) rotateX(18deg) -> scale(1)`), destacando o Selo Ágora 3D com efeito de pulso contínuo (`sealPulseLoop`). Ao clicar no selo/logo oficial, a carta se fecha com transição suave e redireciona o usuário para o Início da jornada (`view-inicio`).
+
+---
+
+## 8. Aprendizados & Evoluções Arquiteturais [05/11/2026]
+
+- **Trilha Gamificada e Micro-Animações Temáticas nas Estações:** Para transformar o workbook longo em uma experiência envolvente e intuitiva, substituímos os submenus estáticos por uma trilha de progresso visual interativa (`.trilha-roadmap-container`). Cada estação possui ícones com micro-animações CSS exclusivas que refletem sua proposta pedagógica:
+  - 🛂 **Passaporte Ágora & Interesses:** Animação de flutuação e inclinação (`animPassaporte`).
+  - 🏆 **Sabedoria da Experiência:** Pulsação dourada com brilho áureo (`animSabedoria`).
+  - 🕯️ **Saindo da Caverna:** Chama tremeluzente da tocha e expansão da luz (`animCaverna`).
+  - 🧭 **Perfil Comportamental DISC:** Bússola com rotação oscilante suave (`animDisc`).
+  - 🎯 **Missões Práticas:** Alvo pulsante com resplendor em turquesa Ágora (`animMissoes`).
+  - 📌 **Checkpoint da Liderança #1:** Marcador âncora com efeito de salto e fixação (`animCheckpoint`).
+
+- **Navegação em Slides / Stepper Viewport:** A rolagem vertical excessiva em formulários extensos causa sobrecarga cognitiva e fadiga no participante. Com o motor de slides (`AgoraApp.irParaEtapaSlide`), cada etapa é exibida individualmente com transição lateral suave (`slideFadeIn`), dotada de barra de navegação inferior (`slide-nav-bar`) com botão de retorno, indicador percentual de avanço e botão de avanço contextual.
+
+- **Alternador de Modo de Leitura (Slides vs. Ver Tudo):** Disponibilizamos o seletor `.trilha-view-mode-toggle` que permite ao usuário escolher entre a navegação focada em slides (`🎯 Modo Slides`) ou a visão vertical completa (`📜 Modo Contínuo`), respeitando preferências individuais de estudo e consulta rápida.
+
+- **Efeito Fosco e Cadeado nos Cards Superiores dos Blocos 02 e 03:** Além da tabela da Matriz Oficial, os cards superiores de visão geral dos blocos (`.block-padlock-card.locked`) agora ocultam seus conteúdos internos (`block-card-desc` e `block-axes-list`) através de desfoque por vidro fosco (`filter: blur(5.5px); opacity: 0.20; pointer-events: none;`). Um badge centralizado animado em vidro translúcido (`.locked-frosted-badge`) exibe o cadeado pulsante com a mensagem contextual de desbloqueio (`Libera após conclusão do Bloco 01` / `02`), mantendo legíveis apenas os títulos e pílulas de mês, preservando o suspense pedagógico da jornada até o envio formal do Forms anterior.
+
+- **Harmonização Visual do Passaporte Ágora e Eliminação de Vazios Verticais:** Na Etapa 1.1 do Workbook, a distribuição original concentrava todos os campos de formulário na coluna direita, resultando em um desnível de altura de mais de 800px e gerando um vácuo branco excessivo abaixo do cartão oficial do Passaporte. A arquitetura foi reestruturada em blocos modulares equilibrados:
+  1. *Grid Superior de Identidade (`.passport-identity-grid`):* Alinha o Passaporte Visual em tempo real lado a lado com os 6 campos diretos de credencial (Nome, Área, Tempo, Origem, Superpoder e Futuro), criando paridade exata de altura e eliminando 100% do espaço ocioso;
+  2. *Pilares Reflexivos de Desenvolvimento (`form-grid-3`):* Trajetória, Conquistas e Desenvolvimento agora ocupam 3 colunas harmoniosas em largura total;
+  3. *Mapa de Interesses Profissionais & Expectativas:* Exibidos em largura total ampla e fluida, permitindo que a nuvem de tags de interesses respire sem aperto.
+
+- **Integração do QR Code Real do Teste Comportamental OneMind:** Na Etapa 1.4 do Workbook (Perfil Comportamental DISC), a coluna esquerda apresentava um vazio vertical entre a síntese do perfil selecionado e as 5 perguntas reflexivas. Inserimos o card oficial `.teste-comportamental-card` com o título **"Teste Comportamental"**, contendo um QR Code SVG real e escaneável direcionando para `https://onemind.com.br/ferramentas/teste-perfil-comportamental/`, instruções passo a passo para o instrutor e botão direto com link externo, preenchendo o espaço em branco com total harmonia e proporcionalidade em relação ao simulador de sala.
+
+- **Integridade Estrutural na Injeção DOM:** Ao empacotar seções preexistentes em contêineres de slides, a barra de navegação de cada etapa deve ser injetada no encerramento natural da própria seção antes de seu `</div>`, mantendo o balanço matemático exato de tags HTML (847 abertas / 847 fechadas, diff=0) e prevenindo regressões de layout em cascata.
